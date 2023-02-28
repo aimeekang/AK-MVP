@@ -26,7 +26,8 @@ const getTicks = (req) => {
           'area', t.area,
           'wall', t.wall,
           'reported', t.reported
-        )) FROM t
+        ))
+        FROM ticks t
       )
     )
   `;

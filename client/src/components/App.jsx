@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import Ticks from './Ticks/Ticks.jsx';
 
 const App = function App() {
-
   return (
     <div className="main">
-      <h2>App goes here</h2>
+      <h2>Routes and Ratings</h2>
+      <div>
+        <Ticks />
+      </div>
     </div>
   );
 };

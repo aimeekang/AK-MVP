@@ -38,4 +38,4 @@ SELECT json_agg(json_build_object(
   'area', a.area,
   'wall', a.wall,
   'reported', a.reported
-)) FROM ticks a;
+)) FROM t a;
