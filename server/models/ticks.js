@@ -7,7 +7,6 @@ const getTicks = (req) => {
       FROM ticks
       WHERE reported = FALSE
       ORDER BY date DESC
-      LIMIT 100
     )
     SELECT json_build_object(
       'results', (

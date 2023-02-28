@@ -31,6 +31,9 @@ module.exports = {
     ],
     'prefer-destructuring': [
       'off'
+    ],
+    'react/prop-types': [
+      'off'
     ]
   }
 };
