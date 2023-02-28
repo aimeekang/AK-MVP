@@ -1,5 +1,6 @@
 module.exports = {
   env: {
+    es6: true,
     browser: true,
     es2021: true
   },
@@ -7,7 +8,8 @@ module.exports = {
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
+    ecmaFeatures: { jsx: true }
   },
   rules: {
     'comma-dangle': [

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from 'react';
 
-const App = () => {
+const App = function App() {
+
   return (
     <div className="main">
       <h2>App goes here</h2>
