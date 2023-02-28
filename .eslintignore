@@ -1,0 +1,6 @@
+**/node_modules
+**/bower_components
+**/lib
+**/vendor
+**/ETL
+**/client/dist/
