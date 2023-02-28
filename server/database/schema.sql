@@ -56,3 +56,6 @@ SELECT setval('ticks_id_seq', (SELECT MAX(id) FROM ticks));
 SELECT setval('routes_id_seq', (SELECT MAX(id) FROM routes));
 SELECT setval('ratings_id_seq', (SELECT MAX(id) FROM ratings));
 SELECT setval('climbers_id_seq', (SELECT MAX(id) FROM climbers));
+
+
+ALTER TABLE ticks ALTER COLUMN date TYPE bigint USING date::bigint;

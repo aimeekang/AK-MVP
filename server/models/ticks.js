@@ -12,8 +12,10 @@ const getTicks = (req) => {
       'results', (
         SELECT json_agg(json_build_object(
           'tick_id', t.id,
-          'tick_date', t.date,
+          'tick_date', to_timestamp(t.date),
+          'tick_route', t.route,
           'tick_grade', t.grade,
+          'tick_notes', t.notes,
           'average_rating', t.average_rating,
           'style', t.style,
           'lead_style', t.lead_style,
