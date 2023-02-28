@@ -1,7 +1,7 @@
 const db = require('../database/db.js');
 
-const getTicks = (req) => {
-
+const getTicks = (req, res) => {
+  res.send('Hello from models!');
 };
 
 const postTick = (req) => {
