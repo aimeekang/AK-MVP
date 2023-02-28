@@ -8,13 +8,13 @@ const path = require('path');
 
 const app = express();
 
-// const router = require('./routes.js');
+const router = require('./routes.js');
 
 app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 
-// app.use('/', router);
+app.use('/', router);
 
 // Serves up all static and generated assets in ../client/dist.
 app.use(express.static(path.join(__dirname, '../client/dist')));
