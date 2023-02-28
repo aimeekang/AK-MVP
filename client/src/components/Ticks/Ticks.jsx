@@ -19,6 +19,7 @@ const Ticks = function Ticks() {
   return (
     <div>
       <h2>Ticks</h2>
+      <span>{ticks.length}</span>
       <div>
         <TickList ticks={ticks} />
       </div>
