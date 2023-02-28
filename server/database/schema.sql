@@ -5,7 +5,7 @@ CREATE DATABASE routesandratings;
 
 CREATE TABLE ticks (
   id SERIAL PRIMARY KEY NOT NULL,
-  date VARCHAR(50),
+  date VARCHAR,
   route TEXT,
   grade VARCHAR(20),
   notes TEXT,
@@ -18,7 +18,8 @@ CREATE TABLE ticks (
   region VARCHAR(500),
   subregion VARCHAR(500),
   area VARCHAR(500),
-  wall VARCHAR(500)
+  wall VARCHAR(500),
+  reported BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE routes (

@@ -1,7 +1,11 @@
 const db = require('../database/db.js');
 
-const getTicks = (req, res) => {
-  res.send('Hello from models!');
+const getTicks = (req) => {
+  const query = `
+    SELECT *
+    FROM ticks
+    WHERE
+  `;
 };
 
 const postTick = (req) => {
