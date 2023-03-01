@@ -26,6 +26,18 @@ const TickList = function TickList({ ticks, filter, updateList }) {
           updateList={updateList}
         />
       ))}
+      {/* <div className="tick-list-footer">
+        {(filteredTicks.length > 6 && numTicks < filteredTicks.length)
+            && (
+              <button
+                className="footer-button"
+                type="button"
+                onClick={() => setNumTicks(numTicks + 6)}
+              >
+                More Ticks
+              </button>
+            )}
+      </div> */}
     </div>
   );
 };

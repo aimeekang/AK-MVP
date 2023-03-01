@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
 import axios from 'axios';
+import Modal from '../../../shared/Modal.jsx';
+import useModal from '../../../shared/useModal.js';
+import EditTick from './EditTick.jsx';
 
 const TickTile = function TickTile({ tick, updateList }) {
-  // const [reported, setReported] = useState(false);
-  const [edit, setEdit] = useState(false);
+  const { isOpen, onOpen, onClose } = useModal();
 
   const formatDate = (date) => {
     const parsedDate = parseISO(date);
@@ -44,8 +46,21 @@ const TickTile = function TickTile({ tick, updateList }) {
       <div className="route-type">
         {tick.route_type}
       </div>
-      {/* <button onClick={handleEdit}>Edit</button> */}
-      <button onClick={handleReported}>Delete</button>
+      <button
+        type="button"
+        onClick={onOpen}
+      >
+        Edit
+      </button>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <EditTick onClose={onClose} tick={tick} />
+      </Modal>
+      <button
+        type="button"
+        onClick={handleReported}
+      >
+        Delete
+      </button>
     </div>
   );
 };
