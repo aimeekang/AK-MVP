@@ -6,18 +6,15 @@ import {
   YAxis,
   Tooltip
 } from 'recharts';
-import * as helpers from '../../../utilities/helpers.js';
 
-const Volume = function Volume({ ticks }) {
-  const volume = helpers.volumeData(ticks);
-
+const Volume = function Volume({ data }) {
   return (
     <div>
       <h3>Volume by Month</h3>
       <AreaChart
         width={1000}
         height={400}
-        data={volume}
+        data={data}
         margin={{
           top: 10,
           right: 30,

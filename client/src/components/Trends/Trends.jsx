@@ -7,6 +7,7 @@ import Volume from './Charts/Volume.jsx';
 
 const Trends = function Trends({ ticks }) {
   const grades = helpers.gradeData(ticks);
+  const volume = helpers.volumeData(ticks);
 
   return (
     <div>
@@ -15,7 +16,7 @@ const Trends = function Trends({ ticks }) {
         <RoutesGrade data={grades.routes} />
         <BouldersGrade data={grades.boulder} />
       </div>
-      <Volume ticks={ticks} />
+      <Volume data={volume} />
       <DaysOut ticks={ticks} />
     </div>
   );
