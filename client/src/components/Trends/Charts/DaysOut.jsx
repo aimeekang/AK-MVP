@@ -1,4 +1,12 @@
-import React from 'react';
+import React, { PureComponents } from 'react';
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip
+} from 'recharts';
 import * as helpers from '../../../utilities/helpers.js';
 
 const DaysOut = function DaysOut({ ticks }) {
@@ -8,6 +16,23 @@ const DaysOut = function DaysOut({ ticks }) {
   return (
     <div>
       <h3>Days Out By Month</h3>
+      <AreaChart
+        width={700}
+        height={400}
+        data={maxEntries}
+        margin={{
+          top: 10,
+          right: 30,
+          left: 0,
+          bottom: 0
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Area type="monotone" dataKey="count" stroke="#8884d8" fill="#8884d8" />
+      </AreaChart>
     </div>
   );
 };
