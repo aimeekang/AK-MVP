@@ -8,7 +8,6 @@ import Volume from './Charts/Volume.jsx';
 
 const Trends = function Trends({ ticks }) {
   const grades = Object.entries(routeGrades);
-  // const daysOut = helpers.getDaysOut(ticks);
 
 
   return (
@@ -19,7 +18,7 @@ const Trends = function Trends({ ticks }) {
         <BouldersGrade />
       </div>
       <DaysOut ticks={ticks} />
-      <Volume />
+      <Volume ticks={ticks} />
     </div>
   );
 };

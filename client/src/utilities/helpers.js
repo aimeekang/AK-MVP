@@ -1,6 +1,7 @@
 const { format } = require('date-fns');
 
-const getDaysOut = (ticks) => {
+// TRENDS >> CHARTS >> DAYS OUT
+const getVolume = (ticks) => {
   let monthCount = {};
 
   ticks.forEach((tick) => {
@@ -13,10 +14,10 @@ const getDaysOut = (ticks) => {
     }
   })
 
-  return createDaysOutData(Object.entries(monthCount)).reverse();
+  return createVolumeData(Object.entries(monthCount)).reverse();
 };
 
-const createDaysOutData = (dates) => {
+const createVolumeData = (dates) => {
   const data = [];
 
   dates.forEach((date) => {
@@ -31,5 +32,5 @@ const createDaysOutData = (dates) => {
 }
 
 export {
-  getDaysOut
+  getVolume
 };
