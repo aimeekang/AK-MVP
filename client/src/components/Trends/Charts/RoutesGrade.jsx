@@ -2,6 +2,8 @@ import React from 'react';
 
 const RoutesGrade = function RoutesGrade({ data }) {
 
+  const vGrades = Object.entries(data);
+
 
   return (
     <div>

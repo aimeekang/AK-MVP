@@ -56,8 +56,8 @@ const gradeData = (ticks) => {
   });
 
   let results = {
-    routes: routeGradeTemplate,
-    boulder: boulderGradeTemplate
+    routes: formatGradeData(routeGradeTemplate),
+    boulder: formatGradeData(boulderGradeTemplate)
   }
 
   return results;
@@ -78,6 +78,31 @@ const mapGrade = (tickGrade) => {
 
   return mappedGrade
 };
+
+const formatGradeData = (gradeData) => {
+  let grades = Object.entries(gradeData); // [[5.7, {Sport: 5, Trad: 0}], [5.8, 10], ...]
+  let data = [];
+
+  grades.forEach((grade) => {
+    if (typeof grade[1] === 'object') {
+      let gradeObj = {
+        name: grade[0],
+        Sport: grade[1].Sport,
+        Trad: grade[1].Trad
+      };
+      data.push(gradeObj);
+    } else {
+      let gradeObj = {
+        name: grade[0],
+        Boulder: grade[1]
+      }
+      data.push(gradeObj);
+    }
+  });
+
+  return data;
+};
+
 
 
 // TRENDS >> CHARTS >> VOLUME
@@ -101,7 +126,7 @@ const formatVolumeData = (dates) => {
   const data = [];
 
   dates.forEach((date) => {
-    const dateObj = {
+    let dateObj = {
       name: format(new Date(date[0]),'MMM yyyy'),
       count: date[1]
     };

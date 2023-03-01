@@ -13,10 +13,10 @@ const Trends = function Trends({ ticks }) {
       <h2>Trends</h2>
       <div className="grade-container">
         <RoutesGrade data={grades.routes} />
-        <BouldersGrade ticks={grades.boulder} />
+        <BouldersGrade data={grades.boulder} />
       </div>
-      <DaysOut ticks={ticks} />
       <Volume ticks={ticks} />
+      <DaysOut ticks={ticks} />
     </div>
   );
 };
