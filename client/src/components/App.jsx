@@ -20,7 +20,7 @@ const App = function App() {
 
   return (
     <div className="main">
-      <h2>Routes and Ratings</h2>
+      <h1>Routes and Ratings</h1>
       <div>
         <Todos />
         <Ticks ticks={ticks} />
