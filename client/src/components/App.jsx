@@ -5,7 +5,9 @@ import Ticks from './Ticks/Ticks.jsx';
 import Trends from './Trends/Trends.jsx';
 
 const App = function App() {
+  const [page, setPage] = useState(0);
   const [ticks, setTicks] = useState([]);
+  const [user, setUser] = useState();
 
   const updateList = () => {
     axios
@@ -13,6 +15,12 @@ const App = function App() {
       .then((results) => setTicks(results.data.results))
       .catch((err) => console.error(err));
   };
+
+  // const updateUser = () => {
+  //   axios
+  //     .get('/rr/climbers')
+  //     .then((results) => )
+  // };
 
   useEffect(() => {
     updateList();
@@ -22,8 +30,8 @@ const App = function App() {
     <div className="main">
       <h1>Routes and Ratings</h1>
       <div>
-        <Todos />
-        <Ticks ticks={ticks} />
+        {/* <Todos /> */}
+        <Ticks ticks={ticks} updateList={updateList} />
         <Trends ticks={ticks} />
       </div>
     </div>

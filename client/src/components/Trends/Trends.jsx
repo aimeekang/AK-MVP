@@ -2,7 +2,7 @@ import React from 'react';
 import * as helpers from '../../utilities/helpers.js';
 import RoutesGrade from './Charts/RoutesGrade.jsx';
 import BouldersGrade from './Charts/BouldersGrade.jsx';
-import DaysOut from './Charts/DaysOut.jsx';
+// import DaysOut from './Charts/DaysOut.jsx';
 import Volume from './Charts/Volume.jsx';
 
 const Trends = function Trends({ ticks }) {

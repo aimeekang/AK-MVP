@@ -40,12 +40,19 @@ const postTick = (req) => {
 
 };
 
-const updateTick = (req) => {
+const flagTick = (req) => {
+  const tickID = req.params.tick_id;
+  const query = `
+    UPDATE ticks
+    SET reported = TRUE
+    WHERE id = $1
+  `;
 
+  return db.query(query, [tickID]);
 };
 
 module.exports = {
   getTicks,
   postTick,
-  updateTick
+  flagTick
 };

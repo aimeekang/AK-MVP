@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
+import axios from 'axios';
 
-const TickTile = function TickTile({ tick }) {
-  const [reported, setReported] = useState(false);
+const TickTile = function TickTile({ tick, updateList }) {
+  // const [reported, setReported] = useState(false);
   const [edit, setEdit] = useState(false);
 
   const formatDate = (date) => {
     const parsedDate = parseISO(date);
     return format(parsedDate, 'PP');
+  };
+
+  const handleReported = () => {
+    axios
+      .put(`/rr/ticks/${tick.tick_id}/flag`)
+      .then((results) => {
+        console.info(results.status);
+        updateList();
+      })
+      .catch((err) => console.error('Error deleting review', err));
   };
 
   return (
@@ -33,8 +44,8 @@ const TickTile = function TickTile({ tick }) {
       <div className="route-type">
         {tick.route_type}
       </div>
-      <button>Edit</button>
-      <button>Delete</button>
+      {/* <button onClick={handleEdit}>Edit</button> */}
+      <button onClick={handleReported}>Delete</button>
     </div>
   );
 };

@@ -7,7 +7,9 @@ const {
 
 // DASHBOARD
 const stats = {
-  daysOut: null,
+  today: format(new Date(),'yyyy MM'), // 'February 28, 2023'
+  daysOut_year: null,
+  daysOut_month: null,
   lastDayOut: null,
   routesClimbed_year: null,
   gradeType: {
@@ -21,6 +23,7 @@ const stats = {
     Boulder: ''
   }
 };
+console.log('stats', stats)
 
 // TRENDS >> CHARTS >> ROUTES GRADE
 const gradeData = (ticks) => {
@@ -142,25 +145,24 @@ const daysData = (ticks) => {
     }
   });
 
-  let results = formatDaysData(dayCount);
-  return results;
+  return dayCount;
 };
 
 
-const formatDaysData = (daysData) => {
-  let months = Object.entries(daysData).reverse();
-  const data = [];
+// const formatDaysData = (daysData) => {
+//   let months = Object.entries(daysData).reverse();
+//   const data = [];
 
-  months.forEach((month) => {
-    let monthObj = {
-      name: format(new Date(month[0]), 'MMM yyyy'),
-      count: month[1]
-    };
-    data.push(monthObj);
-  })
+//   months.forEach((month) => {
+//     let monthObj = {
+//       name: format(new Date(month[0]), 'MMM yyyy'),
+//       count: month[1]
+//     };
+//     data.push(monthObj);
+//   })
 
-  return data;
-};
+//   return data;
+// };
 
 
 export {

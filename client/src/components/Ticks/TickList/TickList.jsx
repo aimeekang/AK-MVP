@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TickTile from './TickTile.jsx';
 
-const TickList = function TickList({ ticks, filter }) {
+const TickList = function TickList({ ticks, filter, updateList }) {
   const [numTicks, setNumTicks] = useState(6);
   const [filteredTicks, setFilteredTicks] = useState([]);
 
@@ -23,6 +23,7 @@ const TickList = function TickList({ ticks, filter }) {
       {filteredTicks.slice(0, numTicks).map((tick) => (
         <TickTile
           tick={tick}
+          updateList={updateList}
         />
       ))}
     </div>
