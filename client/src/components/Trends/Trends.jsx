@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as helpers from '../../utilities/helpers.js';
 import RoutesGrade from './Charts/RoutesGrade.jsx';
 import BouldersGrade from './Charts/BouldersGrade.jsx';
@@ -8,6 +8,8 @@ import Volume from './Charts/Volume.jsx';
 const Trends = function Trends({ ticks }) {
   const grades = helpers.gradeData(ticks);
   const volume = helpers.volumeData(ticks);
+  const days = helpers.daysData(ticks);
+  console.log('days', days);
 
   return (
     <div>
@@ -17,7 +19,7 @@ const Trends = function Trends({ ticks }) {
         <BouldersGrade data={grades.boulder} />
       </div>
       <Volume data={volume} />
-      <DaysOut ticks={ticks} />
+      {/* <DaysOut data={days} /> */}
     </div>
   );
 };

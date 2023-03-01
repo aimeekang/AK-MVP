@@ -18,6 +18,44 @@ const routeGrades = {
 	'5.14-': ['5.14a', '5.14a/b', '5.14-', '5.14', '5.14b', '5.14b/c', '5.14c', '5.14c/d', '5.14d', '5.14+']
 };
 
+const routeGradeTemplate = {
+	'5.6': { Sport: 0, Trad: 0},
+	'5.7': { Sport: 0, Trad: 0},
+	'5.8': { Sport: 0, Trad: 0},
+	'5.9': { Sport: 0, Trad: 0},
+	'5.10-': { Sport: 0, Trad: 0},
+	'5.10': { Sport: 0, Trad: 0},
+	'5.10+': { Sport: 0, Trad: 0},
+	'5.11-': { Sport: 0, Trad: 0},
+	'5.11': { Sport: 0, Trad: 0},
+	'5.11+': { Sport: 0, Trad: 0},
+	'5.12-': { Sport: 0, Trad: 0},
+	'5.12': { Sport: 0, Trad: 0},
+	'5.12+': { Sport: 0, Trad: 0},
+	'5.13-': { Sport: 0, Trad: 0},
+	'5.13': { Sport: 0, Trad: 0},
+	'5.13+': { Sport: 0, Trad: 0},
+	'5.14-': { Sport: 0, Trad: 0},
+};
+const boulderGradeTemplate = {
+	'V0': 0,
+	'V1': 0,
+	'V2': 0,
+	'V3': 0,
+	'V4': 0,
+	'V5': 0,
+	'V6': 0,
+	'V7': 0,
+	'V8': 0,
+	'V9': 0,
+	'V10': 0,
+	'V11': 0,
+	'V12': 0,
+	'V13': 0,
+};
+
 export {
-	routeGrades
+	routeGrades,
+	routeGradeTemplate,
+	boulderGradeTemplate
 };

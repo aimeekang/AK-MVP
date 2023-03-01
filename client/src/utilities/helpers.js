@@ -1,63 +1,50 @@
 const { format } = require('date-fns');
-const { routeGrades } = require('./mappings.js');
+const {
+  routeGrades,
+  routeGradeTemplate,
+  boulderGradeTemplate
+} = require('./mappings.js');
+
+// DASHBOARD
+const stats = {
+  daysOut: null,
+  lastDayOut: null,
+  routesClimbed_year: null,
+  gradeType: {
+    Sport: '',
+    Trad: '',
+    Boulder: ''
+  },
+  volumeType: {
+    Sport: '',
+    Trad: '',
+    Boulder: ''
+  }
+};
 
 // TRENDS >> CHARTS >> ROUTES GRADE
 const gradeData = (ticks) => {
-  let routeGradeTemplate = {
-    '5.6': { Sport: 0, Trad: 0},
-    '5.7': { Sport: 0, Trad: 0},
-    '5.8': { Sport: 0, Trad: 0},
-    '5.9': { Sport: 0, Trad: 0},
-    '5.10-': { Sport: 0, Trad: 0},
-    '5.10': { Sport: 0, Trad: 0},
-    '5.10+': { Sport: 0, Trad: 0},
-    '5.11-': { Sport: 0, Trad: 0},
-    '5.11': { Sport: 0, Trad: 0},
-    '5.11+': { Sport: 0, Trad: 0},
-    '5.12-': { Sport: 0, Trad: 0},
-    '5.12': { Sport: 0, Trad: 0},
-    '5.12+': { Sport: 0, Trad: 0},
-    '5.13-': { Sport: 0, Trad: 0},
-    '5.13': { Sport: 0, Trad: 0},
-    '5.13+': { Sport: 0, Trad: 0},
-    '5.14-': { Sport: 0, Trad: 0},
-  };
-
-  let boulderGradeTemplate = {
-    'V0': 0,
-    'V1': 0,
-    'V2': 0,
-    'V3': 0,
-    'V4': 0,
-    'V5': 0,
-    'V6': 0,
-    'V7': 0,
-    'V8': 0,
-    'V9': 0,
-    'V10': 0,
-    'V11': 0,
-    'V12': 0,
-    'V13': 0,
-  };
+  let routeTemp = routeGradeTemplate;
+  let boulderTemp = boulderGradeTemplate;
 
   ticks.forEach((tick) => {
     let tickGrade = mapGrade(tick.tick_grade) || tick.tick_grade;
     let type = tick.route_type;
 
     if (type === 'Sport') {
-      let types = routeGradeTemplate[tickGrade];
+      let types = routeTemp[tickGrade];
       types.Sport++;
     } else if (type === 'Boulder') {
-      boulderGradeTemplate[tickGrade]++;
+      boulderTemp[tickGrade]++;
     } else {
-      let types = routeGradeTemplate[tickGrade];
+      let types = routeTemp[tickGrade];
       types.Trad++;
     }
   });
 
   let results = {
-    routes: formatGradeData(routeGradeTemplate),
-    boulder: formatGradeData(boulderGradeTemplate)
+    routes: formatGradeData(routeTemp),
+    boulder: formatGradeData(boulderTemp)
   }
 
   return results;
@@ -80,7 +67,7 @@ const mapGrade = (tickGrade) => {
 };
 
 const formatGradeData = (gradeData) => {
-  let grades = Object.entries(gradeData); // [[5.7, {Sport: 5, Trad: 0}], [5.8, 10], ...]
+  let grades = Object.entries(gradeData);
   let data = [];
 
   grades.forEach((grade) => {
@@ -103,8 +90,6 @@ const formatGradeData = (gradeData) => {
   return data;
 };
 
-
-
 // TRENDS >> CHARTS >> VOLUME
 const volumeData = (ticks) => {
   let monthCount = {};
@@ -119,10 +104,12 @@ const volumeData = (ticks) => {
     }
   })
 
-  return formatVolumeData(Object.entries(monthCount)).reverse();
+  let results = formatVolumeData(monthCount);
+  return results
 };
 
-const formatVolumeData = (dates) => {
+const formatVolumeData = (monthData) => {
+  let dates = Object.entries(monthData).reverse();
   const data = [];
 
   dates.forEach((date) => {
@@ -136,7 +123,48 @@ const formatVolumeData = (dates) => {
   return data;
 }
 
+// TRENDS >> CHARTS >> DAYS OUT
+const daysData = (ticks) => {
+  const dates = new Set(); // unique
+  const dayCount = {};
+
+  ticks.forEach((tick) => {
+    dates.add(tick.tick_date);
+  });
+
+  dates.forEach((date) => {
+    let monthYear = format(new Date(date),'yyyy MM');
+
+    if (!dayCount[monthYear]) {
+      dayCount[monthYear] = 1;
+    } else {
+      dayCount[monthYear]++;
+    }
+  });
+
+  let results = formatDaysData(dayCount);
+  return results;
+};
+
+
+const formatDaysData = (daysData) => {
+  let months = Object.entries(daysData).reverse();
+  const data = [];
+
+  months.forEach((month) => {
+    let monthObj = {
+      name: format(new Date(month[0]), 'MMM yyyy'),
+      count: month[1]
+    };
+    data.push(monthObj);
+  })
+
+  return data;
+};
+
+
 export {
   gradeData,
-  volumeData
+  volumeData,
+  daysData
 };

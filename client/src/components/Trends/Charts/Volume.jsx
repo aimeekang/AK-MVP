@@ -4,7 +4,8 @@ import {
   Area,
   XAxis,
   YAxis,
-  Tooltip
+  Tooltip,
+  ResponsiveContainer
 } from 'recharts';
 
 const Volume = function Volume({ data }) {
