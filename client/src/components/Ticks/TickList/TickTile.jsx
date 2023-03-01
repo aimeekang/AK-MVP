@@ -25,42 +25,27 @@ const TickTile = function TickTile({ tick, updateList }) {
 
   return (
     <div className="tick-tile">
-      <div className="route-name">
-        {tick.tick_route}
+      <div className="tick-tile-top">
+        <div className="route-info">
+          <div className="route-name">{tick.tick_route}</div>
+          <div className="route-grade">{tick.tick_grade}</div>
+          <div className="route-location">{tick.location}</div>
+          <div className="route-wall">{tick.wall}</div>
+        </div>
+        <div className="tick-tile-buttons">
+          <button type="button" onClick={onOpen}>Edit</button>
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <EditTick onClose={onClose} tick={tick} />
+          </Modal>
+          <button type="button" onClick={handleReported}>Delete</button>
+        </div>
       </div>
-      <div>
-        {`${tick.style} / ${tick.lead_style}`}
+
+      <div className="user-route-info">
+        <div className="route-date">{formatDate(tick.tick_date)}</div>
+        <div className="route-type">{tick.route_type}</div>
+        <div className="route-style">{`${tick.style} / ${tick.lead_style}`}</div>
       </div>
-      <div className="route-name">
-        {formatDate(tick.tick_date)}
-      </div>
-      <div className="route-location">
-        {tick.location}
-      </div>
-      <div className="route-wall">
-        {tick.wall}
-      </div>
-      <div className="route-grade">
-        {tick.tick_grade}
-      </div>
-      <div className="route-type">
-        {tick.route_type}
-      </div>
-      <button
-        type="button"
-        onClick={onOpen}
-      >
-        Edit
-      </button>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <EditTick onClose={onClose} tick={tick} />
-      </Modal>
-      <button
-        type="button"
-        onClick={handleReported}
-      >
-        Delete
-      </button>
     </div>
   );
 };

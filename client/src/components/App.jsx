@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Todos from './Todos/Todos.jsx';
+import Dashboard from './Dashboard/Dashboard.jsx';
 import Ticks from './Ticks/Ticks.jsx';
 import Trends from './Trends/Trends.jsx';
+// import { ContentContainer, TContainer } from './styles/styles.js';
 
 const App = function App() {
-  const [page, setPage] = useState(0);
   const [ticks, setTicks] = useState([]);
-  const [user, setUser] = useState();
+  // const [page, setPage] = useState(0);
+  // const [user, setUser] = useState();
 
   const updateList = () => {
     axios
@@ -27,12 +28,14 @@ const App = function App() {
   }, []);
 
   return (
-    <div className="main">
+    <div className="main-container">
       <h1>Routes and Ratings</h1>
-      <div>
-        {/* <Todos /> */}
-        <Ticks ticks={ticks} updateList={updateList} />
-        <Trends ticks={ticks} />
+      <div className="content-container">
+        <Dashboard />
+        <div className="t-container">
+          <Ticks ticks={ticks} updateList={updateList} />
+          <Trends ticks={ticks} />
+        </div>
       </div>
     </div>
   );
