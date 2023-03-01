@@ -19,7 +19,8 @@ CREATE TABLE ticks (
   subregion VARCHAR(500),
   area VARCHAR(500),
   wall VARCHAR(500),
-  reported BOOLEAN DEFAULT FALSE
+  reported BOOLEAN DEFAULT FALSE,
+  starred BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE routes (

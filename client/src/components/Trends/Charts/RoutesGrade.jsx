@@ -1,6 +1,8 @@
 import React from 'react';
 
-const RoutesGrade = function BouldersGrade() {
+const RoutesGrade = function RoutesGrade({ data }) {
+
+
   return (
     <div>
       <h3>Routes by Grade</h3>

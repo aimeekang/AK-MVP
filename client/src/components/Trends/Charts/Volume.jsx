@@ -9,7 +9,8 @@ import {
 import * as helpers from '../../../utilities/helpers.js';
 
 const Volume = function Volume({ ticks }) {
-  const volume = helpers.getVolume(ticks);
+  const volume = helpers.volumeData(ticks);
+  console.log(volume);
 
   return (
     <div>
