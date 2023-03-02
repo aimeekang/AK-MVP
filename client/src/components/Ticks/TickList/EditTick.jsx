@@ -22,8 +22,10 @@ const EditTick = function EditTick({ onClose, tick }) {
 
   const [selectedDate, setSelectedDate] = useState(new Date(tick.tick_date));
   const [form, setForm] = useState(inputs);
+  const [disabled, setDisabled] = useState(true);
 
   const handleInput = (event) => {
+    setDisabled(false);
     setForm({
       ...form,
       [event.target.name]: event.target.value
@@ -31,10 +33,11 @@ const EditTick = function EditTick({ onClose, tick }) {
   };
 
   const handleDate = (date) => {
+    setDisabled(false);
     setSelectedDate(date);
     setForm({
       ...form,
-      date: date.toISOString().substring(0, 10)
+      date: date.toISOString()
     });
   };
 
@@ -187,7 +190,7 @@ const EditTick = function EditTick({ onClose, tick }) {
         </NotesDateContainer>
       </FormContents>
 
-      <Button>Save Tick</Button>
+      <Button disabled={disabled}>Save Tick</Button>
     </form>
   );
 };
