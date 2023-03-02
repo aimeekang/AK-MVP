@@ -7,10 +7,11 @@ import {
   Tooltip,
   ResponsiveContainer
 } from 'recharts';
+import { ChartsContainer } from '../../styles/styles.js';
 
 const Volume = function Volume({ data }) {
   return (
-    <div>
+    <ChartsContainer>
       <h3>Volume by Month</h3>
       <ResponsiveContainer width="100%" height={200}>
         <AreaChart
@@ -30,7 +31,7 @@ const Volume = function Volume({ data }) {
           <Area type="monotone" dataKey="count" stroke="#8884d8" fill="#8884d8" />
         </AreaChart>
       </ResponsiveContainer>
-    </div>
+    </ChartsContainer>
   );
 };
 

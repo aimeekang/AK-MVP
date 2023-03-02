@@ -3,6 +3,7 @@ import * as helpers from '../../utilities/helpers.js';
 import RoutesGrade from './Charts/RoutesGrade.jsx';
 import BouldersGrade from './Charts/BouldersGrade.jsx';
 import Volume from './Charts/Volume.jsx';
+import { TrendsContainer, ChartsContainer, GradesContainer } from '../styles/styles.js';
 
 const Trends = function Trends({ ticks }) {
   const grades = helpers.gradeData(ticks);
@@ -11,14 +12,16 @@ const Trends = function Trends({ ticks }) {
   // console.log('days', days);
 
   return (
-    <div className="trends">
-      <h2>Trends</h2>
-      <div className="grade-container">
+    <TrendsContainer>
+      <div className="trends-header">
+        <h2>Trends</h2>
+      </div>
+      <ChartsContainer>
         <RoutesGrade data={grades.routes} />
         <BouldersGrade data={grades.boulder} />
-      </div>
-      <Volume data={volume} />
-    </div>
+        <Volume data={volume} />
+      </ChartsContainer>
+    </TrendsContainer>
   );
 };
 

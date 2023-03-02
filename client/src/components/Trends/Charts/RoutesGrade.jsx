@@ -8,16 +8,19 @@ import {
   Legend,
   ResponsiveContainer
 } from 'recharts';
+import { ChartsContainer } from '../../styles/styles.js';
 
 const RoutesGrade = function RoutesGrade({ data }) {
+  const selectData = data.slice(0, 13);
+
   return (
-    <div>
+    <ChartsContainer>
       <h3>Routes by Grade</h3>
       <ResponsiveContainer width="100%" height={200}>
         <BarChart
           width={500}
           height={300}
-          data={data}
+          data={selectData}
           margin={{
             top: 20,
             right: 30,
@@ -33,7 +36,7 @@ const RoutesGrade = function RoutesGrade({ data }) {
           <Bar dataKey="Trad" stackId="a" fill="#82ca9d" />
         </BarChart>
       </ResponsiveContainer>
-    </div>
+    </ChartsContainer>
   );
 };
 

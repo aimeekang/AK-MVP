@@ -3,7 +3,7 @@ import axios from 'axios';
 import Dashboard from './Dashboard/Dashboard.jsx';
 import Ticks from './Ticks/Ticks.jsx';
 import Trends from './Trends/Trends.jsx';
-// import { ContentContainer, TContainer } from './styles/styles.js';
+import { MainContainer, ContentContainer, TContainer } from './styles/styles.js';
 
 const App = function App() {
   const [ticks, setTicks] = useState([]);
@@ -28,16 +28,16 @@ const App = function App() {
   }, []);
 
   return (
-    <div className="main-container">
+    <MainContainer>
       <h1>Routes and Ratings</h1>
-      <div className="content-container">
-        <Dashboard />
-        <div className="t-container">
+      <ContentContainer>
+        <Dashboard ticks={ticks} />
+        <TContainer>
           <Ticks ticks={ticks} updateList={updateList} />
           <Trends ticks={ticks} />
-        </div>
-      </div>
-    </div>
+        </TContainer>
+      </ContentContainer>
+    </MainContainer>
   );
 };
 

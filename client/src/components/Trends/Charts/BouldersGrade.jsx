@@ -8,10 +8,11 @@ import {
   Legend,
   ResponsiveContainer
 } from 'recharts';
+import { ChartsContainer } from '../../styles/styles.js';
 
 const BouldersGrade = function BouldersGrade({ data }) {
   return (
-    <div>
+    <ChartsContainer>
       <h3>Boulders by Grade</h3>
       <ResponsiveContainer width="100%" height={200}>
         <BarChart
@@ -32,7 +33,7 @@ const BouldersGrade = function BouldersGrade({ data }) {
           <Bar dataKey="Boulder" fill="#82ca9d" />
         </BarChart>
       </ResponsiveContainer>
-    </div>
+    </ChartsContainer>
   );
 };
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import Profile from './Profile.jsx';
 import Stats from './Stats.jsx';
+import { DashboardContainer } from '../styles/styles.js';
 
-const Dashboard = function Dashboard() {
+const Dashboard = function Dashboard({ ticks }) {
   return (
-    <div className="dashboard">
-      <h2>Dashboard</h2>
+    <DashboardContainer>
       <Profile />
-      <Stats />
-    </div>
+      <Stats ticks={ticks} />
+    </DashboardContainer>
   );
 };
 

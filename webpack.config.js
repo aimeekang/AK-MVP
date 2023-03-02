@@ -17,7 +17,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         resolve: {
-          extensions: ['.js', '.jsx', '.png', '.jpg']
+          extensions: ['.js', '.jsx']
         },
         exclude: /node_modules/,
         use: {
@@ -26,6 +26,18 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/'
+            }
+          }
+        ]
       }
     ]
   }

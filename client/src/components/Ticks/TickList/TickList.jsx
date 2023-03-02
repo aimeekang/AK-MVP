@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TickTile from './TickTile.jsx';
+import { TickListContainer } from '../../styles/styles.js';
 
 const TickList = function TickList({ ticks, filter, updateList }) {
   const [numTicks, setNumTicks] = useState(6);
@@ -19,9 +20,10 @@ const TickList = function TickList({ ticks, filter, updateList }) {
   }, [filter, ticks]);
 
   return (
-    <div className="tick-list">
+    <TickListContainer>
       {filteredTicks.slice(0, numTicks).map((tick) => (
         <TickTile
+          key={tick.tick_id}
           tick={tick}
           updateList={updateList}
         />
@@ -38,7 +40,7 @@ const TickList = function TickList({ ticks, filter, updateList }) {
               </button>
             )}
       </div> */}
-    </div>
+    </TickListContainer>
   );
 };
 
