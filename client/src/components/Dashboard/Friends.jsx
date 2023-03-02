@@ -17,7 +17,9 @@ const Friends = function Friends() {
         <div className="climber-photo">
           <img src={andy} alt="andy" />
           <img src={elisha} alt="elisha" />
-          <img src={kalvin} alt="kalvin" />
+          <a href="https://www.instagram.com/kalvinhom/">
+            <img src={kalvin} alt="kalvin" />
+          </a>
         </div>
 
         <div className="climber-photo">

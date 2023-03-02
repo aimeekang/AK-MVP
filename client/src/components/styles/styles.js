@@ -34,8 +34,8 @@ export const TextContainer = styled.div`
 
 export const ContentContainer = styled.div`
   display: flex;
-  margin-left: 150px;
-  margin-right: 150px;
+  margin-left: 200px;
+  margin-right: 200px;
 `;
 
 export const DashboardContainer = styled.div`
@@ -52,6 +52,7 @@ export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 1rem;
+  /* margin-bottom: 40px; */
   padding: 1rem;
   justify-items: center;
   align-items: center;
@@ -77,6 +78,7 @@ export const ProfileContainer = styled.div`
   }
 `;
 
+// FRIENDS COMOPONENT
 export const FriendsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -253,8 +255,6 @@ export const TickTileContainer = styled.div`
     grid-template-columns: 0.8fr 0.9fr 4.5fr;
     font-size: 85%
   }
-
-
 `;
 
 export const OutlinedEditIcon = styled(AiOutlineEdit)`
@@ -354,6 +354,4 @@ export const ChartsContainer = styled.div`
 export const GradesContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* flex-direction: row;
-  justify-content: space-between; */
 `;

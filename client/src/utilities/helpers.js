@@ -23,7 +23,7 @@ const stats = {
     Boulder: ''
   }
 };
-console.log('stats', stats)
+// console.log('stats', stats)
 
 // TRENDS >> CHARTS >> ROUTES GRADE
 const gradeData = (ticks) => {
