@@ -39,11 +39,11 @@ export const ContentContainer = styled.div`
 `;
 
 export const DashboardContainer = styled.div`
-  width: 30%;
+  width: 25%;
 `;
 
 export const TContainer = styled.div`
-  width: 70%;
+  width: 75%;
   flex-direction: column;
 `;
 
@@ -63,12 +63,60 @@ export const ProfileContainer = styled.div`
     font-weight: bold;
   }
 
+  .user-location {
+    font-size: 100%;
+  }
+
   img {
     max-width: 50%;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     padding: 0.5em;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export const FriendsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  width: 100%
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+
+  .friends-header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .climbers {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .climber-photo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-top: 2.5px;
+    margin-bottom: 20px;
+  }
+
+  img {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 12%;
+    object-fit: cover;
+    justify-content: space-between;
+    padding: 5px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   }
 `;
@@ -81,15 +129,20 @@ export const StatsContainer = styled.div`
   padding: 1rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 
+  .stats-header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   .stat-category {
-    margin-bottom: 3rem;
+    margin-bottom: 39px;
   }
 
   .stat-header {
     font-size: 1.17em;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
   }
 
   .stat-numbers {
@@ -113,7 +166,9 @@ export const TicksContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 1rem;
+  padding-bottom: 0.8rem;
   background-color: #FFFFFF;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 
   .ticks-header {
     display: flex;
@@ -270,6 +325,10 @@ export const Button = styled.button`
   &:hover{
     background-color: #dc3c04;
   }
+
+  &:disabled {
+    background-color: #eeac8e;
+  }
 `;
 
 // TRENDS COMPONENT
@@ -278,6 +337,7 @@ export const TrendsContainer = styled.div`
   flex-direction: column;
   margin: 1rem;
   background-color: #FFFFFF;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 
   .trends-header {
     padding: 2rem;

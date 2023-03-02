@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { parseISO, getTime } from 'date-fns';
 import {
   FormHeader,
   RadioOptions,
@@ -12,7 +13,7 @@ import {
   Button
 } from '../../styles/styles.js';
 
-const EditTick = function EditTick({ onClose, tick }) {
+const EditTick = function EditTick({ onClose, tick, updateList }) {
   const inputs = {
     date: tick.tick_date,
     notes: tick.tick_notes,
@@ -20,6 +21,7 @@ const EditTick = function EditTick({ onClose, tick }) {
     lead_style: tick.lead_style
   };
 
+  const formatDate = getTime(parseISO(tick.tick_date)) / 1000; // 1672358400
   const [selectedDate, setSelectedDate] = useState(new Date(tick.tick_date));
   const [form, setForm] = useState(inputs);
   const [disabled, setDisabled] = useState(true);
@@ -32,6 +34,9 @@ const EditTick = function EditTick({ onClose, tick }) {
     });
   };
 
+  // TODO: abstract out the format date / overall how dates are stored / used
+
+  // date format will change when it hits this line
   const handleDate = (date) => {
     setDisabled(false);
     setSelectedDate(date);
@@ -42,13 +47,15 @@ const EditTick = function EditTick({ onClose, tick }) {
     });
   };
 
+  // date format should be checked here
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put(`'/rr/ticks/${tick.tick_id}/update'`, form)
+      .put(`/rr/ticks/${tick.tick_id}/update`, form)
       .then((results) => {
         console.info(results.status);
         onClose(event);
+        updateList();
       })
       .catch((err) => console.error(err));
   };

@@ -148,7 +148,6 @@ const daysData = (ticks) => {
   return dayCount;
 };
 
-
 // const formatDaysData = (daysData) => {
 //   let months = Object.entries(daysData).reverse();
 //   const data = [];

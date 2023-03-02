@@ -2,6 +2,8 @@ import React from 'react';
 import { StatsContainer } from '../styles/styles.js';
 
 const Stats = function Stats({ ticks }) {
+  let today = new Date(); // Thu Mar 02 2023 10:01:15 GMT-0800 (Pacific Standard Time)
+
   const stats = {
     routes: {
       month: 8,
@@ -11,7 +13,7 @@ const Stats = function Stats({ ticks }) {
     days: {
       month: 2,
       year: 10,
-      all_time: 550
+      all_time: 256
     },
     gradeType: {
       Sport: '5.12b',
@@ -21,12 +23,29 @@ const Stats = function Stats({ ticks }) {
     volumeType: {
       Sport: '600',
       Trad: '100',
-      Boulder: '35'
+      Boulder: '9'
     }
   };
 
   return (
     <StatsContainer>
+      <div className="stats-header">
+        <h2>Stats</h2>
+      </div>
+      <div className="stat-category">
+        <div className="stat-header">Highest Grades</div>
+        <div className="stat-numbers">
+          <div className="stat">{stats.gradeType.Sport}</div>
+          <div className="stat">{stats.gradeType.Trad}</div>
+          <div className="stat">{stats.gradeType.Boulder}</div>
+        </div>
+        <div className="stat-metrics">
+          <div className="metric">Lead</div>
+          <div className="metric">Trad</div>
+          <div className="metric">Boulder</div>
+        </div>
+      </div>
+
       <div className="stat-category">
         <div className="stat-header">Routes</div>
         <div className="stat-numbers">
@@ -43,20 +62,6 @@ const Stats = function Stats({ ticks }) {
       </div>
 
       <div className="stat-category">
-        <div className="stat-header">Highest Grades</div>
-        <div className="stat-numbers">
-          <div className="stat">{stats.gradeType.Sport}</div>
-          <div className="stat">{stats.gradeType.Trad}</div>
-          <div className="stat">{stats.gradeType.Boulder}</div>
-        </div>
-        <div className="stat-metrics">
-          <div className="metric">Lead</div>
-          <div className="metric">Boulder</div>
-          <div className="metric">Trad</div>
-        </div>
-      </div>
-
-      <div className="stat-category">
         <div className="stat-header">Volume by Type</div>
         <div className="stat-numbers">
           <div className="stat">{stats.volumeType.Sport}</div>
@@ -66,8 +71,8 @@ const Stats = function Stats({ ticks }) {
 
         <div className="stat-metrics">
           <div className="metric">Lead</div>
-          <div className="metric">Boulder</div>
           <div className="metric">Trad</div>
+          <div className="metric">Boulder</div>
         </div>
       </div>
 

@@ -67,7 +67,7 @@ const TickTile = function TickTile({ tick, updateList }) {
               />
             )}
           <Modal isOpen={isOpen} onClose={onClose}>
-            <EditTick onClose={onClose} tick={tick} />
+            <EditTick onClose={onClose} tick={tick} updateList={updateList} />
           </Modal>
           {flagHovering
             ? (
