@@ -30,6 +30,14 @@ const EditTick = function EditTick({ onClose, tick }) {
     });
   };
 
+  const handleDate = (date) => {
+    setSelectedDate(date);
+    setForm({
+      ...form,
+      date: date.toISOString().substring(0, 10)
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -160,7 +168,7 @@ const EditTick = function EditTick({ onClose, tick }) {
             <div className="calendar-icon">
               <DatePicker
                 selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
+                onChange={handleDate}
                 dateFormat="P"
               />
             </div>
