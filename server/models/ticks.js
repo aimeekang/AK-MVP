@@ -41,13 +41,18 @@ const postTick = (req) => {
 };
 
 const updateTick = (req) => {
-  const { date, notes, style, lead_style} = req.body;
-  console.log('date', date);
+  const tickID = req.params.tick_id;
+  const { date, notes, style, lead_style } = req.body;
   const query = `
-
+    UPDATE ticks
+    SET date = $2,
+      notes = $3,
+      style = $4,
+      lead_style = $5
+    WHERE id = $1
   `;
 
-  return db.query(query, []);
+  return db.query(query, [tickID, date, notes, style, lead_style]);
 };
 
 const flagTick = (req) => {

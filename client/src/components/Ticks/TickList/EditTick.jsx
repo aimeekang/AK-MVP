@@ -36,7 +36,6 @@ const EditTick = function EditTick({ onClose, tick }) {
     setDisabled(false);
     setSelectedDate(date);
     const formattedDate = Math.floor(date.getTime() / 1000);
-    // console.log(formattedDate);
     setForm({
       ...form,
       date: formattedDate
