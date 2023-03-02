@@ -53,6 +53,7 @@ export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 1rem;
+  padding: 1rem;
   justify-items: center;
   align-items: center;
   background-color: #FFFFFF;
@@ -141,6 +142,7 @@ export const TickTileContainer = styled.div`
     display: grid;
     align-items: center;
     grid-template-columns: 6fr 1fr;
+    margin-bottom: 0.25rem;
   }
 
   .route-name {
@@ -180,6 +182,39 @@ export const OutlinedTrashIcon = styled(BsTrash)`
 
 export const FilledTrashIcon = styled(BsTrashFill)`
   font-size: 20px;
+`;
+
+// EDIT TICK COMPONENT
+export const FormHeader = styled.h2`
+  margin: 0;
+  margin-bottom: 4px;
+`;
+
+export const RadioOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const SubRadioOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+`;
+
+export const FormContents = styled.div`
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: 1fr 1fr;
+`;
+
+export const TextArea = styled.textarea`
+  width: 200px;
+  min-height: 150px;
+`;
+
+export const NotesDateContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 // TRENDS COMPONENT

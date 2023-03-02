@@ -42,11 +42,12 @@ const ModalInner = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
+  max-height: 450px;
   background-color: #FFFFFF;
   margin-top: 90px;
   margin-bottom: 64px;
   z-index: 1010;
-  max-width: 1000px;
+  max-width: 400px;
   color: #242526;
   padding: 24px;
 `;

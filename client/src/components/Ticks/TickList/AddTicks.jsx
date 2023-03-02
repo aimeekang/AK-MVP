@@ -11,14 +11,14 @@ import {
   TextArea
 } from '../../styles/styles.js';
 
-const EditTick = function EditTick({ onClose, tick }) {
-  const [selectedDate, setSelectedDate] = useState(new Date(tick.tick_date));
+const AddTick = function AddTick({ onClose, tick }) {
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const inputs = {
-    date: tick.tick_date,
-    notes: tick.tick_notes,
-    style: tick.style,
-    lead_style: tick.lead_style
+    // date: tick.tick_date,
+    // notes: tick.tick_notes,
+    // style: tick.style,
+    // lead_style: tick.lead_style
   };
 
   const handleInput = () => {
@@ -169,4 +169,4 @@ const EditTick = function EditTick({ onClose, tick }) {
   );
 };
 
-export default EditTick;
+export default AddTick;
