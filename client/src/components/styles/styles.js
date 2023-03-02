@@ -21,7 +21,6 @@ export const Header = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  /* z-index: 9999; */
   font-size: 250%;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 `;
@@ -131,6 +130,31 @@ export const TickListContainer = styled.div`
   flex-direction: column;
   margin: 1rem;
   margin-top: 0;
+
+  .tick-list-footer {
+    margin: 1rem;
+  }
+`;
+
+export const TickButton = styled.button`
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+
+  color: white;
+  font: inherit;
+  background-color: #fb4e05;
+  width: 120px;
+  padding: 6px 15px;
+  border-radius: 5px;
+
+  &:hover{
+    background-color: #dc3c04;
+  }
 `;
 
 export const TickTileContainer = styled.div`
@@ -166,6 +190,8 @@ export const TickTileContainer = styled.div`
     grid-template-columns: 0.8fr 0.9fr 4.5fr;
     font-size: 85%
   }
+
+
 `;
 
 export const OutlinedEditIcon = styled(AiOutlineEdit)`
@@ -205,6 +231,7 @@ export const FormContents = styled.div`
   display: grid;
   padding: 1rem;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: 0.5rem;
 `;
 
 export const TextArea = styled.textarea`
@@ -215,6 +242,26 @@ export const TextArea = styled.textarea`
 export const NotesDateContainer = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const Button = styled.button`
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+
+  color: white;
+  font: inherit;
+  background-color: #fb4e05;
+  padding: 8px 20px;
+  border-radius: 5px;
+
+  &:hover{
+    background-color: #dc3c04;
+  }
 `;
 
 // TRENDS COMPONENT

@@ -8,7 +8,8 @@ import {
   SubRadioOptions,
   FormContents,
   NotesDateContainer,
-  TextArea
+  TextArea,
+  Button
 } from '../../styles/styles.js';
 
 const EditTick = function EditTick({ onClose, tick }) {
@@ -43,11 +44,12 @@ const EditTick = function EditTick({ onClose, tick }) {
         <div className="form-section">
           <div className="form-section-header">Style</div>
           <RadioOptions>
-            <label htmlFor="solo">
+            <label htmlFor="Solo">
               <input
                 name="style"
                 type="radio"
                 value={tick.style}
+                checked={tick.style === 'Solo'}
                 onChange={handleInput}
                 required
               />
@@ -58,6 +60,7 @@ const EditTick = function EditTick({ onClose, tick }) {
                 name="style"
                 type="radio"
                 value={tick.style}
+                checked={tick.style === 'TR'}
                 onChange={handleInput}
                 required
               />
@@ -68,6 +71,7 @@ const EditTick = function EditTick({ onClose, tick }) {
                 name="style"
                 type="radio"
                 value={tick.style}
+                checked={tick.style === 'Follow'}
                 onChange={handleInput}
                 required
               />
@@ -78,6 +82,7 @@ const EditTick = function EditTick({ onClose, tick }) {
                 name="style"
                 type="radio"
                 value={tick.style}
+                checked={tick.style === 'Lead'}
                 onChange={handleInput}
                 required
               />
@@ -86,9 +91,10 @@ const EditTick = function EditTick({ onClose, tick }) {
             <SubRadioOptions>
               <label htmlFor="Onsight">
                 <input
-                  name="style"
+                  name="lead_style"
                   type="radio"
-                  value={tick.style}
+                  value={tick.lead_style}
+                  checked={tick.lead_style === 'Onsight'}
                   onChange={handleInput}
                   required
                 />
@@ -96,9 +102,10 @@ const EditTick = function EditTick({ onClose, tick }) {
               </label>
               <label htmlFor="Flash">
                 <input
-                  name="style"
+                  name="lead_style"
                   type="radio"
-                  value={tick.style}
+                  value={tick.lead_style}
+                  checked={tick.lead_style === 'Flash'}
                   onChange={handleInput}
                   required
                 />
@@ -106,9 +113,10 @@ const EditTick = function EditTick({ onClose, tick }) {
               </label>
               <label htmlFor="Redpoint">
                 <input
-                  name="style"
+                  name="lead_style"
                   type="radio"
-                  value={tick.style}
+                  value={tick.lead_style}
+                  checked={tick.lead_style === 'Redpoint'}
                   onChange={handleInput}
                   required
                 />
@@ -116,9 +124,10 @@ const EditTick = function EditTick({ onClose, tick }) {
               </label>
               <label htmlFor="Pinkpoint">
                 <input
-                  name="style"
+                  name="lead_style"
                   type="radio"
-                  value={tick.style}
+                  value={tick.lead_style}
+                  checked={tick.lead_style === 'Pinkpoint'}
                   onChange={handleInput}
                   required
                 />
@@ -126,9 +135,10 @@ const EditTick = function EditTick({ onClose, tick }) {
               </label>
               <label htmlFor="Fell/Hung">
                 <input
-                  name="style"
+                  name="lead_style"
                   type="radio"
-                  value={tick.style}
+                  value={tick.lead_style}
+                  checked={tick.lead_style === 'Fell/Hung'}
                   onChange={handleInput}
                   required
                 />
@@ -164,7 +174,7 @@ const EditTick = function EditTick({ onClose, tick }) {
         </NotesDateContainer>
       </FormContents>
 
-      <button type="button">Save Tick</button>
+      <Button>Save Tick</Button>
     </form>
   );
 };

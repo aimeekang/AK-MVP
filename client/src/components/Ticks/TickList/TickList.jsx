@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import TickTile from './TickTile.jsx';
-import { TickListContainer } from '../../styles/styles.js';
+import { TickListContainer, TickButton } from '../../styles/styles.js';
 
 const TickList = function TickList({ ticks, filter, updateList }) {
-  const [numTicks, setNumTicks] = useState(6);
+  const [numTicks, setNumTicks] = useState(5);
   const [filteredTicks, setFilteredTicks] = useState([]);
 
   const filterTicks = () => {
@@ -29,16 +29,17 @@ const TickList = function TickList({ ticks, filter, updateList }) {
         />
       ))}
       <div className="tick-list-footer">
-        {(filteredTicks.length > 6 && numTicks < filteredTicks.length)
+        {(filteredTicks.length > 5 && numTicks < filteredTicks.length)
             && (
-              <button
+              <TickButton
                 className="footer-button"
                 type="button"
                 onClick={() => setNumTicks(numTicks + 6)}
               >
-                More Ticks
-              </button>
+                Show More
+              </TickButton>
             )}
+        <TickButton>Add Tick</TickButton>
       </div>
     </TickListContainer>
   );
