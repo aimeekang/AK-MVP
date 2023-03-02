@@ -122,6 +122,7 @@ export const TicksContainer = styled.div`
     justify-content: space-between;
     padding: 2rem;
     padding-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 `;
 
@@ -138,7 +139,7 @@ export const TickListContainer = styled.div`
 `;
 
 export const TickListItems = styled.div`
-  height: 530px; /* set a fixed height */
+  height: 450px; /* set a fixed height */
   overflow: auto; /* enable the scrollbar */
 `;
 

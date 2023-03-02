@@ -13,8 +13,6 @@ import {
 } from '../../styles/styles.js';
 
 const EditTick = function EditTick({ onClose, tick }) {
-  const [selectedDate, setSelectedDate] = useState(new Date(tick.tick_date));
-
   const inputs = {
     date: tick.tick_date,
     notes: tick.tick_notes,
@@ -22,14 +20,20 @@ const EditTick = function EditTick({ onClose, tick }) {
     lead_style: tick.lead_style
   };
 
-  const handleInput = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date(tick.tick_date));
+  const [form, setForm] = useState(inputs);
 
+  const handleInput = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value
+    });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put(`'/rr/ticks/${tick.tick_id}/update'`, inputs)
+      .put(`'/rr/ticks/${tick.tick_id}/update'`, form)
       .then((results) => {
         console.info(results.status);
         onClose(event);
@@ -38,7 +42,6 @@ const EditTick = function EditTick({ onClose, tick }) {
   };
 
   // to refactor dynamic radio button options
-
   return (
     <form className="edit-tick-form" onSubmit={handleSubmit}>
       <FormHeader>Edit Tick</FormHeader>
@@ -50,8 +53,8 @@ const EditTick = function EditTick({ onClose, tick }) {
               <input
                 name="style"
                 type="radio"
-                value={tick.style}
-                checked={tick.style === 'Solo'}
+                value="Solo"
+                checked={form.style === 'Solo'}
                 onChange={handleInput}
                 required
               />
@@ -61,8 +64,8 @@ const EditTick = function EditTick({ onClose, tick }) {
               <input
                 name="style"
                 type="radio"
-                value={tick.style}
-                checked={tick.style === 'TR'}
+                value="TR"
+                checked={form.style === 'TR'}
                 onChange={handleInput}
                 required
               />
@@ -72,8 +75,8 @@ const EditTick = function EditTick({ onClose, tick }) {
               <input
                 name="style"
                 type="radio"
-                value={tick.style}
-                checked={tick.style === 'Follow'}
+                value="Follow"
+                checked={form.style === 'Follow'}
                 onChange={handleInput}
                 required
               />
@@ -83,8 +86,8 @@ const EditTick = function EditTick({ onClose, tick }) {
               <input
                 name="style"
                 type="radio"
-                value={tick.style}
-                checked={tick.style === 'Lead'}
+                value="Lead"
+                checked={form.style === 'Lead'}
                 onChange={handleInput}
                 required
               />
@@ -95,8 +98,8 @@ const EditTick = function EditTick({ onClose, tick }) {
                 <input
                   name="lead_style"
                   type="radio"
-                  value={tick.lead_style}
-                  checked={tick.lead_style === 'Onsight'}
+                  value="Onsight"
+                  checked={form.lead_style === 'Onsight'}
                   onChange={handleInput}
                   required
                 />
@@ -106,8 +109,8 @@ const EditTick = function EditTick({ onClose, tick }) {
                 <input
                   name="lead_style"
                   type="radio"
-                  value={tick.lead_style}
-                  checked={tick.lead_style === 'Flash'}
+                  value="Flash"
+                  checked={form.lead_style === 'Flash'}
                   onChange={handleInput}
                   required
                 />
@@ -117,8 +120,8 @@ const EditTick = function EditTick({ onClose, tick }) {
                 <input
                   name="lead_style"
                   type="radio"
-                  value={tick.lead_style}
-                  checked={tick.lead_style === 'Redpoint'}
+                  value="Redpoint"
+                  checked={form.lead_style === 'Redpoint'}
                   onChange={handleInput}
                   required
                 />
@@ -128,8 +131,8 @@ const EditTick = function EditTick({ onClose, tick }) {
                 <input
                   name="lead_style"
                   type="radio"
-                  value={tick.lead_style}
-                  checked={tick.lead_style === 'Pinkpoint'}
+                  value="Pinkpoint"
+                  checked={form.lead_style === 'Pinkpoint'}
                   onChange={handleInput}
                   required
                 />
@@ -139,8 +142,8 @@ const EditTick = function EditTick({ onClose, tick }) {
                 <input
                   name="lead_style"
                   type="radio"
-                  value={tick.lead_style}
-                  checked={tick.lead_style === 'Fell/Hung'}
+                  value="Fell/Hung"
+                  checked={form.lead_style === 'Fell/Hung'}
                   onChange={handleInput}
                   required
                 />
@@ -169,7 +172,7 @@ const EditTick = function EditTick({ onClose, tick }) {
             </div>
             <TextArea
               name="notes"
-              value={inputs.notes}
+              value={form.notes}
               onChange={handleInput}
             />
           </div>

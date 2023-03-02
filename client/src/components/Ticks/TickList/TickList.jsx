@@ -3,7 +3,7 @@ import TickTile from './TickTile.jsx';
 import { TickListContainer, TickButton, TickListItems } from '../../styles/styles.js';
 
 const TickList = function TickList({ ticks, filter, updateList }) {
-  const [numTicks, setNumTicks] = useState(7);
+  const [numTicks, setNumTicks] = useState(6);
   const [filteredTicks, setFilteredTicks] = useState([]);
 
   const filterTicks = () => {
@@ -31,12 +31,12 @@ const TickList = function TickList({ ticks, filter, updateList }) {
         ))}
       </TickListItems>
       <div className="tick-list-footer">
-        {(filteredTicks.length > 5 && numTicks < filteredTicks.length)
+        {(filteredTicks.length > 6 && numTicks < filteredTicks.length)
             && (
               <TickButton
                 className="footer-button"
                 type="button"
-                onClick={() => setNumTicks(numTicks + 7)}
+                onClick={() => setNumTicks(numTicks + 6)}
                 style={{ marginRight: '10px' }}
               >
                 Show More
