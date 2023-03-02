@@ -17,8 +17,10 @@ const Trends = function Trends({ ticks }) {
         <h2>Trends</h2>
       </div>
       <ChartsContainer>
-        <RoutesGrade data={grades.routes} />
-        <BouldersGrade data={grades.boulder} />
+        <GradesContainer>
+          <RoutesGrade data={grades.routes} />
+          <BouldersGrade data={grades.boulder} />
+        </GradesContainer>
         <Volume data={volume} />
       </ChartsContainer>
     </TrendsContainer>

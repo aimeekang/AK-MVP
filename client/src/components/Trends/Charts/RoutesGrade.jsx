@@ -32,8 +32,8 @@ const RoutesGrade = function RoutesGrade({ data }) {
           <YAxis />
           <Tooltip />
           {/* <Legend /> */}
-          <Bar dataKey="Sport" stackId="a" fill="#8884d8" />
-          <Bar dataKey="Trad" stackId="a" fill="#82ca9d" />
+          <Bar dataKey="Sport" stackId="a" fill="#fb4e05" />
+          <Bar dataKey="Trad" stackId="a" fill="#eeac8e" />
         </BarChart>
       </ResponsiveContainer>
     </ChartsContainer>

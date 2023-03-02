@@ -30,7 +30,7 @@ const BouldersGrade = function BouldersGrade({ data }) {
           <YAxis />
           <Tooltip />
           {/* <Legend /> */}
-          <Bar dataKey="Boulder" fill="#82ca9d" />
+          <Bar dataKey="Boulder" fill="#fb4e05" />
         </BarChart>
       </ResponsiveContainer>
     </ChartsContainer>

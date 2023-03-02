@@ -19,16 +19,16 @@ const Volume = function Volume({ data }) {
           height={400}
           data={data}
           margin={{
-            top: 10,
+            top: 20,
             right: 30,
-            left: 0,
-            bottom: 0
+            left: 20,
+            bottom: 5
           }}
         >
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Area type="monotone" dataKey="count" stroke="#8884d8" fill="#8884d8" />
+          <Area type="monotone" dataKey="count" stroke="#fb4e05" fill="#fb4e05" />
         </AreaChart>
       </ResponsiveContainer>
     </ChartsContainer>

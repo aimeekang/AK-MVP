@@ -3,7 +3,7 @@ import axios from 'axios';
 import Dashboard from './Dashboard/Dashboard.jsx';
 import Ticks from './Ticks/Ticks.jsx';
 import Trends from './Trends/Trends.jsx';
-import { MainContainer, ContentContainer, TContainer } from './styles/styles.js';
+import { Header, TextContainer, MainContainer, ContentContainer, TContainer } from './styles/styles.js';
 
 const App = function App() {
   const [ticks, setTicks] = useState([]);
@@ -29,7 +29,11 @@ const App = function App() {
 
   return (
     <MainContainer>
-      <h1>Routes and Ratings</h1>
+      <Header>
+        <TextContainer>
+          dynolabs
+        </TextContainer>
+      </Header>
       <ContentContainer>
         <Dashboard ticks={ticks} />
         <TContainer>

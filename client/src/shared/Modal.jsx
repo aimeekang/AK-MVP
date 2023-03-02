@@ -42,13 +42,12 @@ const ModalInner = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-  border-radius: 12px;
-  background-color: #FFFBEA;
-  margin-top: 64px;
+  background-color: #FFFFFF;
+  margin-top: 90px;
   margin-bottom: 64px;
   z-index: 1010;
   max-width: 1000px;
-  color: #3D405B;
+  color: #242526;
   padding: 24px;
 `;
 
@@ -64,10 +63,12 @@ const ModalOverlay = styled.div`
 
 const CloseButton = styled.button`
   position: absolute;
-  cursor: pointer;
   top: 10px;
   right: 20px;
   border: 0;
   font-size: 1.3rem;
   background: transparent;
+  &:hover {
+    color: #fb4e05;
+  }
 `;

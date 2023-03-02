@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { AiOutlineEdit, AiTwotoneEdit } from 'react-icons/ai';
+import { BsTrash, BsTrashFill } from 'react-icons/bs';
 
 // OVERALL APP
 export const MainContainer = styled.div`
@@ -6,16 +8,35 @@ export const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 150px;
-  margin-right: 150px;
   height: 100%;
-  gap: 2rem;
+  margin-top: 80px;
+`;
+
+export const Header = styled.div`
+  background-color: #FFFFFF;
+  position: fixed;
+  font-family: 'Shrikhand', cursive;
+  width: 100%;
+  height: 70px;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* z-index: 9999; */
+  font-size: 250%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+`;
+
+export const TextContainer = styled.div`
+  margin-left: 275px;
+  margin-top: 0.5rem;
+  color: #fb4e05;
+  font-family: 'Shrikhand', cursive;
 `;
 
 export const ContentContainer = styled.div`
   display: flex;
-  width: 100%;
-  margin: 0 auto;
+  margin-left: 150px;
+  margin-right: 150px;
 `;
 
 export const DashboardContainer = styled.div`
@@ -25,7 +46,6 @@ export const DashboardContainer = styled.div`
 export const TContainer = styled.div`
   width: 70%;
   flex-direction: column;
-  /* gap: 2.0rem; */
 `;
 
 // DASHBOARD COMPONENT
@@ -76,7 +96,7 @@ export const StatsContainer = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
-    font-size: 150%;
+    font-size: 140%;
   }
 
   .stat-metrics {
@@ -130,6 +150,7 @@ export const TickTileContainer = styled.div`
 
   .tick-tile-buttons {
     justify-self: end;
+    color: #fb4e05;
   }
 
   .route-info {
@@ -143,6 +164,22 @@ export const TickTileContainer = styled.div`
     grid-template-columns: 0.8fr 0.9fr 4.5fr;
     font-size: 85%
   }
+`;
+
+export const OutlinedEditIcon = styled(AiOutlineEdit)`
+  font-size: 24px;
+`;
+
+export const FilledEditIcon = styled(AiTwotoneEdit)`
+  font-size: 24px;
+`;
+
+export const OutlinedTrashIcon = styled(BsTrash)`
+  font-size: 20px;
+`;
+
+export const FilledTrashIcon = styled(BsTrashFill)`
+  font-size: 20px;
 `;
 
 // TRENDS COMPONENT
@@ -162,4 +199,11 @@ export const ChartsContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 1rem;
+`;
+
+export const GradesContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* flex-direction: row;
+  justify-content: space-between; */
 `;

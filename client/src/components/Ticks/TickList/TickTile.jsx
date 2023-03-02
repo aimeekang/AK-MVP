@@ -1,19 +1,35 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
 import axios from 'axios';
-import { AiOutlineEdit } from 'react-icons/ai';
-import { BsTrash } from 'react-icons/bs';
 import Modal from '../../../shared/Modal.jsx';
 import useModal from '../../../shared/useModal.js';
 import EditTick from './EditTick.jsx';
-import { TickTileContainer } from '../../styles/styles.js';
+import { TickTileContainer, OutlinedEditIcon, FilledEditIcon, OutlinedTrashIcon, FilledTrashIcon } from '../../styles/styles.js';
 
 const TickTile = function TickTile({ tick, updateList }) {
   const { isOpen, onOpen, onClose } = useModal();
+  const [editHovering, setEditHovering] = useState(false);
+  const [flagHovering, setFlagHovering] = useState(false);
 
   const formatDate = (date) => {
     const parsedDate = parseISO(date);
     return format(parsedDate, 'PP');
+  };
+
+  const handleEditEnter = () => {
+    setEditHovering(true);
+  };
+
+  const handleEditLeave = () => {
+    setEditHovering(false);
+  };
+
+  const handleFlagEnter = () => {
+    setFlagHovering(true);
+  };
+
+  const handleFlagLeave = () => {
+    setFlagHovering(false);
   };
 
   const handleReported = () => {
@@ -35,11 +51,39 @@ const TickTile = function TickTile({ tick, updateList }) {
           <div className="route-location">{`${tick.location}  >  ${tick.subregion}  >  ${tick.wall}`}</div>
         </div>
         <div className="tick-tile-buttons">
-          <AiOutlineEdit onClick={onOpen} />
+          {editHovering
+            ? (
+              <FilledEditIcon
+                onClick={onOpen}
+                onMouseEnter={handleEditEnter}
+                onMouseLeave={handleEditLeave}
+              />
+            )
+            : (
+              <OutlinedEditIcon
+                onClick={onOpen}
+                onMouseEnter={handleEditEnter}
+                onMouseLeave={handleEditLeave}
+              />
+            )}
           <Modal isOpen={isOpen} onClose={onClose}>
             <EditTick onClose={onClose} tick={tick} />
           </Modal>
-          <BsTrash onClick={handleReported} />
+          {flagHovering
+            ? (
+              <FilledTrashIcon
+                onClick={handleReported}
+                onMouseEnter={handleFlagEnter}
+                onMouseLeave={handleFlagLeave}
+              />
+            )
+            : (
+              <OutlinedTrashIcon
+                onClick={handleReported}
+                onMouseEnter={handleFlagEnter}
+                onMouseLeave={handleFlagLeave}
+              />
+            )}
         </div>
       </div>
 
