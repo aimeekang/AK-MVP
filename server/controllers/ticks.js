@@ -11,6 +11,13 @@ const postTick = (req, res) => {
 
 };
 
+const updateTick = (req, res) => {
+  models.ticks
+    .updateTick(req)
+    .then(() => res.sendStatus(204))
+    .catch((err) => res.status(500).send(err));
+};
+
 const flagTick = (req, res) => {
   models.ticks
     .flagTick(req)
@@ -21,5 +28,6 @@ const flagTick = (req, res) => {
 module.exports = {
   getTicks,
   postTick,
+  updateTick,
   flagTick
 };

@@ -69,6 +69,7 @@ export const ProfileContainer = styled.div`
     aspect-ratio: 1 / 1;
     object-fit: cover;
     padding: 0.5em;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   }
 `;
 

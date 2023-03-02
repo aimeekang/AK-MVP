@@ -40,6 +40,16 @@ const postTick = (req) => {
 
 };
 
+const updateTick = (req) => {
+  const { date, notes, style, lead_style} = req.body;
+  console.log('date', date);
+  const query = `
+
+  `;
+
+  return db.query(query, []);
+};
+
 const flagTick = (req) => {
   const tickID = req.params.tick_id;
   const query = `
@@ -54,5 +64,6 @@ const flagTick = (req) => {
 module.exports = {
   getTicks,
   postTick,
+  updateTick,
   flagTick
 };
