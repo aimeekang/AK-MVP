@@ -37,6 +37,8 @@ const EditTick = function EditTick({ onClose, tick }) {
       .catch((err) => console.error(err));
   };
 
+  // to refactor dynamic radio button options
+
   return (
     <form className="edit-tick-form" onSubmit={handleSubmit}>
       <FormHeader>Edit Tick</FormHeader>

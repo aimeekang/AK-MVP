@@ -131,9 +131,15 @@ export const TickListContainer = styled.div`
   margin: 1rem;
   margin-top: 0;
 
+
   .tick-list-footer {
     margin: 1rem;
   }
+`;
+
+export const TickListItems = styled.div`
+  height: 530px; /* set a fixed height */
+  overflow: auto; /* enable the scrollbar */
 `;
 
 export const TickButton = styled.button`

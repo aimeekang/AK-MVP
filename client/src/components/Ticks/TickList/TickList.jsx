@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import TickTile from './TickTile.jsx';
-import { TickListContainer, TickButton } from '../../styles/styles.js';
+import { TickListContainer, TickButton, TickListItems } from '../../styles/styles.js';
 
 const TickList = function TickList({ ticks, filter, updateList }) {
-  const [numTicks, setNumTicks] = useState(5);
+  const [numTicks, setNumTicks] = useState(7);
   const [filteredTicks, setFilteredTicks] = useState([]);
 
   const filterTicks = () => {
@@ -21,20 +21,23 @@ const TickList = function TickList({ ticks, filter, updateList }) {
 
   return (
     <TickListContainer>
-      {filteredTicks.slice(0, numTicks).map((tick) => (
-        <TickTile
-          key={tick.tick_id}
-          tick={tick}
-          updateList={updateList}
-        />
-      ))}
+      <TickListItems>
+        {filteredTicks.slice(0, numTicks).map((tick) => (
+          <TickTile
+            key={tick.tick_id}
+            tick={tick}
+            updateList={updateList}
+          />
+        ))}
+      </TickListItems>
       <div className="tick-list-footer">
         {(filteredTicks.length > 5 && numTicks < filteredTicks.length)
             && (
               <TickButton
                 className="footer-button"
                 type="button"
-                onClick={() => setNumTicks(numTicks + 6)}
+                onClick={() => setNumTicks(numTicks + 7)}
+                style={{ marginRight: '10px' }}
               >
                 Show More
               </TickButton>
