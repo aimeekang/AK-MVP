@@ -28,8 +28,8 @@ const RoutesGrade = function RoutesGrade({ data }) {
             bottom: 5
           }}
         >
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis dataKey="name" tickLine={false} tickMargin={12} tick={{ fontSize: 13 }} angle={-45} />
+          <YAxis tick={{ fontSize: 13 }} />
           <Tooltip />
           {/* <Legend /> */}
           <Bar dataKey="Sport" stackId="a" fill="#fb4e05" />

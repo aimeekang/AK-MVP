@@ -25,8 +25,8 @@ const Volume = function Volume({ data }) {
             bottom: 5
           }}
         >
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis dataKey="name" tickLine={false} tickMargin={10} tick={{ fontSize: 13 }} />
+          <YAxis tick={{ fontSize: 13 }} />
           <Tooltip />
           <Area type="monotone" dataKey="count" stroke="#fb4e05" fill="#fb4e05" />
         </AreaChart>

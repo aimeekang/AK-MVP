@@ -13,6 +13,7 @@ import {
 
 const App = function App() {
   const [ticks, setTicks] = useState([]);
+  console.log('tick length', ticks);
   // const [page, setPage] = useState(0);
   // const [user, setUser] = useState();
 

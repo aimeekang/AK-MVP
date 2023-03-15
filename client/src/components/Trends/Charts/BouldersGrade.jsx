@@ -26,10 +26,9 @@ const BouldersGrade = function BouldersGrade({ data }) {
             bottom: 5
           }}
         >
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis dataKey="name" tickLine={false} tickMargin={10} tick={{ fontSize: 13 }} angle={-45} />
+          <YAxis tick={{ fontSize: 13 }} />
           <Tooltip />
-          {/* <Legend /> */}
           <Bar dataKey="Boulder" fill="#fb4e05" />
         </BarChart>
       </ResponsiveContainer>

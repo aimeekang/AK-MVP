@@ -39,11 +39,11 @@ export const ContentContainer = styled.div`
 `;
 
 export const DashboardContainer = styled.div`
-  width: 25%;
+  width: 20%;
 `;
 
 export const TContainer = styled.div`
-  width: 75%;
+  width: 80%;
   flex-direction: column;
 `;
 
@@ -73,7 +73,8 @@ export const ProfileContainer = styled.div`
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    padding: 0.5em;
+    /* padding: 1em; */
+    margin: 1em;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   }
 `;
@@ -128,6 +129,8 @@ export const StatsContainer = styled.div`
   margin: 1rem;
   background-color: #FFFFFF;
   padding: 1rem;
+  padding-left: 2.75em;
+  padding-right: 2.75em;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 
   .stats-header {
@@ -136,7 +139,7 @@ export const StatsContainer = styled.div`
   }
 
   .stat-category {
-    margin-bottom: 39px;
+    margin-bottom: 50px;
   }
 
   .stat-header {
@@ -151,7 +154,7 @@ export const StatsContainer = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
-    font-size: 140%;
+    font-size: 120%;
   }
 
   .stat-metrics {
@@ -229,12 +232,16 @@ export const TickTileContainer = styled.div`
   .tick-tile-top {
     display: grid;
     align-items: center;
-    grid-template-columns: 6fr 1fr;
+    grid-template-columns: 8fr 1fr;
     margin-bottom: 0.25rem;
   }
 
   .route-name {
-    font-weight: 600;
+    font-weight: 550;
+  }
+
+  .route-grade {
+    width: 60px;
   }
 
   .tick-tile-buttons {
@@ -244,7 +251,7 @@ export const TickTileContainer = styled.div`
 
   .route-info {
     display: grid;
-    grid-template-columns: 2.5fr 0.8fr 3fr;
+    grid-template-columns: 1.5fr 0.5fr 3fr;
     font-size: 115%
   }
 

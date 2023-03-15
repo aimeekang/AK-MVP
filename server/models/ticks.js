@@ -29,7 +29,7 @@ const getTicks = (req) => {
           'wall', t.wall,
           'reported', t.reported
         ))
-        FROM ticks t
+        FROM t
       )
     )
   `;
