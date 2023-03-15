@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AiOutlineEdit, AiTwotoneEdit } from 'react-icons/ai';
+import { FaRegEdit, FaEdit } from 'react-icons/fa';
 import { BsTrash, BsTrashFill } from 'react-icons/bs';
 
 // OVERALL APP
@@ -234,8 +234,7 @@ export const TickTileContainer = styled.div`
   }
 
   .route-name {
-    font-size: 115%;
-    font-weight: bold;
+    font-weight: 600;
   }
 
   .tick-tile-buttons {
@@ -256,20 +255,24 @@ export const TickTileContainer = styled.div`
   }
 `;
 
-export const OutlinedEditIcon = styled(AiOutlineEdit)`
-  font-size: 24px;
+export const OutlinedEditIcon = styled(FaRegEdit)`
+  font-size: 20px;
+  padding: 0.15em;
 `;
 
-export const FilledEditIcon = styled(AiTwotoneEdit)`
-  font-size: 24px;
+export const FilledEditIcon = styled(FaEdit)`
+  font-size: 20px;
+  padding: 0.15em;
 `;
 
 export const OutlinedTrashIcon = styled(BsTrash)`
   font-size: 20px;
+  padding: 0.15em;
 `;
 
 export const FilledTrashIcon = styled(BsTrashFill)`
   font-size: 20px;
+  padding: 0.15em;
 `;
 
 // EDIT TICK COMPONENT
