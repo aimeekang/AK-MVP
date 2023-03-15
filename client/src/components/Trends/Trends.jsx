@@ -7,6 +7,7 @@ import { TrendsContainer, ChartsContainer, GradesContainer } from '../styles/sty
 
 const Trends = function Trends({ ticks }) {
   const grades = helpers.gradeData(ticks);
+  console.log('grades', grades.routes);
   const volume = helpers.volumeData(ticks);
   const days = helpers.daysData(ticks);
   // console.log('days', days);

@@ -85,7 +85,6 @@ export const FriendsContainer = styled.div`
   margin: 1rem;
   padding: 1rem;
   background-color: #FFFFFF;
-  width: 100%
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 
   .friends-header {
