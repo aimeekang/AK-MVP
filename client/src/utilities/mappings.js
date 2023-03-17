@@ -37,6 +37,7 @@ const routeGradeTemplate = {
 	'5.13+': { Sport: 0, Trad: 0},
 	'5.14-': { Sport: 0, Trad: 0},
 };
+
 const boulderGradeTemplate = {
 	'V0': 0,
 	'V1': 0,
@@ -54,8 +55,66 @@ const boulderGradeTemplate = {
 	'V13': 0,
 };
 
+const routeDetailGrades = {
+	'5.6': ['5.1', '5.2', '5.3', '5.4', '5.5', '5.6'],
+	'5.7': ['5.7', '5.7 PG13', '5.7 V0 R', '5.7-', '5.7- PG13', '5.7+', '5.7 C0'],
+	'5.8': ['5.8', '5.8 PG13', '5.8 V0 R', '5.8-', '5.8- PG13', '5.8+'],
+	'5.9': ['5.9', '5.9 PG13', '5.9 V0 R', '5.9-', '5.9- PG13', '5.9+'],
+	'5.10a': ['5.10a', '5.10-'],
+	'5.10a/b': ['5.10a/b', '5.10'],
+	'5.10b': ['5.10b'],
+	'5.10b/c': ['5.10b/c', '5.10b/c PG13'],
+	'5.10c': ['5.10c'],
+	'5.10c/d': ['5.10c/d', '5.10+'],
+	'5.10d': ['5.10d', '5.10d PG13'],
+	'5.11a': ['5.11-', '5.11a'],
+	'5.11a/b': ['5.11a/b', '5.11'],
+	'5.11b': ['5.11b', '5.11b PG13'],
+	'5.11b/c':['5.11b/c', '5.11b/c PG13'],
+	'5.11c': ['5.11c'],
+	'5.11c/d': ['5.11+', '5.11c/d'],
+	'5.11d': ['5.11d'],
+	'5.12a': ['5.12a', '5.12-'],
+	'5.12a/b': ['5.12a/b', '5.12'],
+	'5.12b': ['5.12b'],
+	'5.12b/c': ['5.12b/c'],
+	'5.12c': ['5.12c'],
+	'5.12c/d': ['5.12c/d', '5.12+'],
+	'5.12d': ['5.12d'],
+};
+
+const routeGradeDetailTemplate = {
+	'5.6': { Sport: 0, Trad: 0},
+	'5.7': { Sport: 0, Trad: 0},
+	'5.8': { Sport: 0, Trad: 0},
+	'5.9': { Sport: 0, Trad: 0},
+	'5.10a': { Sport: 0, Trad: 0},
+	'5.10a/b': { Sport: 0, Trad: 0},
+	'5.10b': { Sport: 0, Trad: 0},
+	'5.10b/c': { Sport: 0, Trad: 0},
+	'5.10c': { Sport: 0, Trad: 0},
+	'5.10c/d': { Sport: 0, Trad: 0},
+	'5.10d': { Sport: 0, Trad: 0},
+	'5.11a': { Sport: 0, Trad: 0},
+	'5.11a/b': { Sport: 0, Trad: 0},
+	'5.11b': { Sport: 0, Trad: 0},
+	'5.11b/c': { Sport: 0, Trad: 0},
+	'5.11c': { Sport: 0, Trad: 0},
+	'5.11c/d': { Sport: 0, Trad: 0},
+	'5.11d': { Sport: 0, Trad: 0},
+	'5.12a': { Sport: 0, Trad: 0},
+	'5.12a/b': { Sport: 0, Trad: 0},
+	'5.12b': { Sport: 0, Trad: 0},
+	'5.12b/c': { Sport: 0, Trad: 0},
+	'5.12c': { Sport: 0, Trad: 0},
+	'5.12c/d': { Sport: 0, Trad: 0},
+	'5.12d': { Sport: 0, Trad: 0},
+};
+
 export {
 	routeGrades,
 	routeGradeTemplate,
-	boulderGradeTemplate
+	boulderGradeTemplate,
+	routeDetailGrades,
+	routeGradeDetailTemplate,
 };

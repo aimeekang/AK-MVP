@@ -52,8 +52,8 @@ export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  /* margin-bottom: 40px; */
   padding: 1rem;
+  padding-bottom: 2rem;
   justify-items: center;
   align-items: center;
   background-color: #FFFFFF;
@@ -73,9 +73,9 @@ export const ProfileContainer = styled.div`
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    /* padding: 1em; */
+    padding: 5px;
     margin: 1em;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -84,7 +84,8 @@ export const FriendsContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background-color: #FFFFFF;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 
@@ -113,13 +114,13 @@ export const FriendsContainer = styled.div`
     flex-direction: row;
     justify-items: center;
     align-items: center;
-    width: 80px;
-    height: 80px;
-    border-radius: 12%;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
     object-fit: cover;
     justify-content: space-between;
-    padding: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    padding: 2px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   }
 `;
 

@@ -1,8 +1,11 @@
 import React from 'react';
+import { format } from 'date-fns';
 import { StatsContainer } from '../styles/styles.js';
+import * as helpers from '../../utilities/helpers.js';
 
 const Stats = function Stats({ ticks }) {
-  let today = new Date(); // Thu Mar 02 2023 10:01:15 GMT-0800 (Pacific Standard Time)
+  const today = new Date(); // Thu Mar 02 2023 10:01:15 GMT-0800 (Pacific Standard Time)
+  // console.log('year', format(new Date(), 'yyyy'));
 
   const stats = {
     routes: {
@@ -16,8 +19,8 @@ const Stats = function Stats({ ticks }) {
       all_time: 256
     },
     gradeType: {
-      Sport: '5.12b',
-      Trad: '5.10a',
+      Sport: '',
+      Trad: '',
       Boulder: 'V4'
     },
     volumeType: {
@@ -26,6 +29,11 @@ const Stats = function Stats({ ticks }) {
       Boulder: '9'
     }
   };
+
+  const routeStats = helpers.routeGradeStats(ticks);
+  stats['gradeType']['Sport'] = routeStats.Sport;
+  stats['gradeType']['Trad'] = routeStats.Trad;
+  console.log('stats', stats);
 
   return (
     <StatsContainer>

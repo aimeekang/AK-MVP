@@ -2,12 +2,15 @@ const { format } = require('date-fns');
 const {
   routeGrades,
   routeGradeTemplate,
-  boulderGradeTemplate
+  boulderGradeTemplate,
+  routeDetailGrades,
+  routeGradeDetailTemplate,
 } = require('./mappings.js');
 
 // DASHBOARD
 const stats = {
   today: format(new Date(),'yyyy MM'), // 'February 28, 2023'
+  current_year: format(new Date(), 'yyyy'),
   daysOut_year: null,
   daysOut_month: null,
   lastDayOut: null,
@@ -23,7 +26,68 @@ const stats = {
     Boulder: ''
   }
 };
-// console.log('stats', stats)
+
+// STATS
+const routeGradeStats = (ticks) => {
+  let routeStats = highestGradeRoutes(ticks);
+  let grades = Object.entries(routeStats); // ['5.6', [{Sport: 1, Trad: 1}]], ['5.7', [{Sport: 1, Trad: 1}]]
+
+  let routeGrades = {
+    Sport: '',
+    Trad: '',
+  };
+
+  for (var i = 0; i < grades.length; i++) {
+    let grade = grades[i];
+
+    if (grade[1]['Sport'] > 0) {
+      routeGrades['Sport'] = grade[0];
+    }
+
+    if (grade[1]['Trad'] > 0) {
+      routeGrades['Trad'] = grade[0];
+    }
+  }
+
+  return routeGrades;
+};
+
+
+const highestGradeRoutes = (ticks) => {
+  let routeGrades = routeGradeDetailTemplate;
+
+  ticks.forEach((tick) => {
+    let tickGrade = mapDetailGrade(tick.tick_grade) || tick.tick_grade;
+    let type = tick.route_type;
+
+    if (type === 'Sport' && (tick.lead_style === 'Redpoint' || tick.lead_style === 'Flash' || tick.lead_style === 'Onsight')) {
+      let types = routeGrades[tickGrade];
+      types.Sport++;
+    } else if (type === 'Trad' && (tick.lead_style === 'Redpoint' || tick.lead_style === 'Flash' || tick.lead_style === 'Onsight')) {
+      let types = routeGrades[tickGrade];
+      types.Trad++;
+    }
+  });
+
+  return routeGrades;
+};
+
+const mapDetailGrade = (tickGrade) => {
+  const grades = Object.entries(routeDetailGrades);
+  let mappedGrade;
+
+  grades.forEach((grade) => {
+    let match = grade[0];
+    let options = grade[1];
+
+    if (options.includes(tickGrade)) {
+      mappedGrade = match;
+    }
+  })
+
+  return mappedGrade
+};
+
 
 // TRENDS >> CHARTS >> ROUTES GRADE
 const gradeData = (ticks) => {
@@ -167,5 +231,7 @@ const daysData = (ticks) => {
 export {
   gradeData,
   volumeData,
-  daysData
+  daysData,
+  highestGradeRoutes,
+  routeGradeStats,
 };
