@@ -24,15 +24,20 @@ const Stats = function Stats({ ticks }) {
       Boulder: 'V4'
     },
     volumeType: {
-      Sport: '600',
-      Trad: '100',
-      Boulder: '9'
+      Sport: null,
+      Trad: null,
+      Boulder: null
     }
   };
 
   const routeStats = helpers.routeGradeStats(ticks);
   stats['gradeType']['Sport'] = routeStats.Sport;
   stats['gradeType']['Trad'] = routeStats.Trad;
+
+  const volumeByType = helpers.calcVolumeStats(ticks);
+  stats['volumeType']['Sport'] = volumeByType.Sport;
+  stats['volumeType']['Trad'] = volumeByType.Trad;
+  stats['volumeType']['Boulder'] = volumeByType.Boulder;
   console.log('stats', stats);
 
   return (

@@ -18,16 +18,48 @@ const stats = {
   gradeType: {
     Sport: '',
     Trad: '',
-    Boulder: ''
+    Boulder: '',
   },
   volumeType: {
     Sport: '',
     Trad: '',
-    Boulder: ''
+    Boulder: '',
   }
 };
 
 // STATS
+const calcVolumeStats = (ticks) => {
+  let routeVolume = gradeData(ticks);
+  let entries = Object.entries(routeVolume);
+  let routes = entries[0][1];
+  let boulder = entries[1][1];
+
+  let volumeStats = {
+    Sport: null,
+    Trad: null,
+    Boulder: null,
+  };
+
+  for (var i = 0; i < routes.length; i++) {
+    var type = routes[i];
+    var sportCount = type['Sport'];
+    var tradCount = type['Trad'];
+
+    volumeStats['Sport'] += sportCount;
+    volumeStats['Trad'] += tradCount;
+  }
+
+  for (var i = 0; i < boulder.length; i++) {
+    var grade = boulder[i];
+    var boulderCount = grade['Boulder'];
+
+    volumeStats['Boulder'] += boulderCount;
+  }
+
+  return volumeStats;
+};
+
+
 const routeGradeStats = (ticks) => {
   let routeStats = highestGradeRoutes(ticks);
   let grades = Object.entries(routeStats); // ['5.6', [{Sport: 1, Trad: 1}]], ['5.7', [{Sport: 1, Trad: 1}]]
@@ -234,4 +266,5 @@ export {
   daysData,
   highestGradeRoutes,
   routeGradeStats,
+  calcVolumeStats,
 };
