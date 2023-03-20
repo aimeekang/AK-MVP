@@ -1,5 +1,5 @@
 # dynolabs
-A site for climbers to log ticks & view trends: track routes climbed and highest grade, days out, volume, and breakdown of climbing style.
+A site for climbers to log routes climbed and view trends, including highest grades, days out, volume, and breakdown of climbing style.
 <br/>
 
 ## Tech Stack
