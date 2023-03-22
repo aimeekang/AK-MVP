@@ -1,5 +1,5 @@
 # dynolabs
-A site for climbers to log routes climbed and view trends, including highest grades, days out, volume, and breakdown of climbing style.
+A site to log routes climbed and view trends, including highest grades, days out, volume, and breakdown of climbing style.
 <br/>
 
 <img src='https://user-images.githubusercontent.com/112139070/226815552-836ca0d2-d2d4-4676-a42a-50dd8bb36bdc.png'/>
