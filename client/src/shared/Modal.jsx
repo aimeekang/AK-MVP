@@ -106,6 +106,7 @@ const OutlinedCloseIcon = styled(IoIosCloseCircleOutline)`
   right: 20px;
   border: 0;
   color:  #fb4e05;
+  font-size: 25px;
   background-color: transparent;
 `;
 
@@ -115,5 +116,6 @@ const FilledCloseIcon = styled(IoIosCloseCircle)`
   right: 20px;
   border: 0;
   color:  #fb4e05;
+  font-size: 25px;
   background-color: transparent;
 `;
