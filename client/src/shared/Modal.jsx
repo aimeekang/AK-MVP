@@ -39,10 +39,6 @@ export default function Modal({ children, isOpen, onClose }) {
                       onMouseLeave={handleCloseLeave}
                     />
                   )}
-
-                {/* <CloseButton>
-                  <IoIosCloseCircleOutline className="modal-close" onClick={onClose} />
-                </CloseButton> */}
                 {children}
               </ModalInner>
             </Wrapper>
@@ -89,16 +85,6 @@ const ModalOverlay = styled.div`
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
 `;
-
-// const CloseButton = styled.button`
-//   position: absolute;
-//   top: 10px;
-//   right: 20px;
-//   border: 0;
-//   font-size: 1.3rem;
-//   color:  #fb4e05;
-//   background-color: transparent;
-// `;
 
 const OutlinedCloseIcon = styled(IoIosCloseCircleOutline)`
   position: absolute;
