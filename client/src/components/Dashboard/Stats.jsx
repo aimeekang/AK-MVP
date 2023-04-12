@@ -60,21 +60,6 @@ const Stats = function Stats({ ticks }) {
       </div>
 
       <div className="stat-category">
-        <div className="stat-header">Routes</div>
-        <div className="stat-numbers">
-          <div className="stat">{stats.routes.month}</div>
-          <div className="stat">{stats.routes.year}</div>
-          <div className="stat">{stats.routes.all_time}</div>
-        </div>
-
-        <div className="stat-metrics">
-          <div className="metric">this month</div>
-          <div className="metric">this year</div>
-          <div className="metric">all time</div>
-        </div>
-      </div>
-
-      <div className="stat-category">
         <div className="stat-header">Volume by Type</div>
         <div className="stat-numbers">
           <div className="stat">{stats.volumeType.Sport}</div>
@@ -86,6 +71,21 @@ const Stats = function Stats({ ticks }) {
           <div className="metric">Lead</div>
           <div className="metric">Trad</div>
           <div className="metric">Boulder</div>
+        </div>
+      </div>
+
+      <div className="stat-category">
+        <div className="stat-header">Routes</div>
+        <div className="stat-numbers">
+          <div className="stat">{stats.routes.month}</div>
+          <div className="stat">{stats.routes.year}</div>
+          <div className="stat">{stats.routes.all_time}</div>
+        </div>
+
+        <div className="stat-metrics">
+          <div className="metric">this month</div>
+          <div className="metric">this year</div>
+          <div className="metric">all time</div>
         </div>
       </div>
 

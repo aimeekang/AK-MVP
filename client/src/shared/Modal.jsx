@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { IoIosCloseCircleOutline, IoIosCloseCircle } from 'react-icons/io';
 
 export default function Modal({ children, isOpen, onClose }) {
+  const [closeHovering, setCloseHovering] = useState(false);
+
+  const handleCloseEnter = () => {
+    setCloseHovering(true);
+  };
+
+  const handleCloseLeave = () => {
+    setCloseHovering(false);
+  };
+
   return (
     <div style={{ position: 'fixed', zIndex: '999' }}>
       {!isOpen
@@ -12,9 +22,27 @@ export default function Modal({ children, isOpen, onClose }) {
             <ModalOverlay />
             <Wrapper data-testid="modal">
               <ModalInner>
-                <CloseButton>
+                {closeHovering
+                  ? (
+                    <FilledCloseIcon
+                      className="modal-close"
+                      onClick={onClose}
+                      onMouseEnter={handleCloseEnter}
+                      onMouseLeave={handleCloseLeave}
+                    />
+                  )
+                  : (
+                    <OutlinedCloseIcon
+                      className="modal-close"
+                      onClick={onClose}
+                      onMouseEnter={handleCloseEnter}
+                      onMouseLeave={handleCloseLeave}
+                    />
+                  )}
+
+                {/* <CloseButton>
                   <IoIosCloseCircleOutline className="modal-close" onClick={onClose} />
-                </CloseButton>
+                </CloseButton> */}
                 {children}
               </ModalInner>
             </Wrapper>
@@ -62,14 +90,30 @@ const ModalOverlay = styled.div`
   background: rgba(0, 0, 0, 0.6);
 `;
 
-const CloseButton = styled.button`
+// const CloseButton = styled.button`
+//   position: absolute;
+//   top: 10px;
+//   right: 20px;
+//   border: 0;
+//   font-size: 1.3rem;
+//   color:  #fb4e05;
+//   background-color: transparent;
+// `;
+
+const OutlinedCloseIcon = styled(IoIosCloseCircleOutline)`
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 20px;
   border: 0;
-  font-size: 1.3rem;
-  background: transparent;
-  &:hover {
-    color: #fb4e05;
-  }
+  color:  #fb4e05;
+  background-color: transparent;
+`;
+
+const FilledCloseIcon = styled(IoIosCloseCircle)`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 0;
+  color:  #fb4e05;
+  background-color: transparent;
 `;
