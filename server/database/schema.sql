@@ -54,10 +54,10 @@ CREATE TABLE climbers (
   name VARCHAR(50)
 );
 
-CREATE INDEX area_id_index ON climbs (answer_id);
+CREATE INDEX area_id_index ON climbs (area_id);
 
 COPY ticks FROM '/Users/aimeekang/HackReactor/MVP/AK-MVP/server/database/data/ticks.csv' WITH (FORMAT CSV, HEADER true);
-COPY climbers FROM '/Users/aimeekang/HackReactor/MVP/AK-MVP/server/database/data/climbers.csv' WITH (FORMAT CSV, HEADER true);
+-- COPY climbers FROM '/Users/aimeekang/HackReactor/MVP/AK-MVP/server/database/data/climbers.csv' WITH (FORMAT CSV, HEADER true);
 
 -- SELECT setval('ticks_id_seq', (SELECT MAX(id) FROM ticks));
 -- SELECT setval('routes_id_seq', (SELECT MAX(id) FROM routes));
