@@ -29,7 +29,9 @@ CREATE TABLE areas (
   path_tokens VARCHAR[],
   description TEXT,
   total_climbs INTEGER,
-  coordinates POINT
+  coordinates POINT,
+  aggregate_grade JSONB[],
+  aggregate_discipline JSONB
 );
 
 CREATE TABLE climbs (
@@ -38,7 +40,7 @@ CREATE TABLE climbs (
   name TEXT NOT NULL,
   yds VARCHAR(20),
   fa TEXT,
-  type VARCHAR(20),
+  type JSONB,
   safety TEXT,
   description TEXT,
   protection TEXT,
