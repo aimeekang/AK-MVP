@@ -23,13 +23,28 @@ CREATE TABLE ticks (
   starred BOOLEAN DEFAULT FALSE
 );
 
-CREATE TABLE routes (
+CREATE TABLE areas (
   id SERIAL PRIMARY KEY NOT NULL,
-  route_id INTEGER,
-  name TEXT,
-  grade VARCHAR(20),
+  name TEXT NOT NULL,
+  path_tokens VARCHAR[],
+  description TEXT,
+  total_climbs INTEGER,
+  coordinates POINT
+);
+
+CREATE TABLE climbs (
+  id SERIAL PRIMARY KEY NOT NULL,
+  area_id INTEGER,
+  name TEXT NOT NULL,
+  yds VARCHAR(20),
+  fa TEXT,
   type VARCHAR(20),
-  todo BOOLEAN DEFAULT FALSE
+  safety TEXT,
+  description TEXT,
+  protection TEXT,
+  location TEXT,
+  left_right_index INTEGER,
+  FOREIGN KEY (area_id) REFERENCES areas(id)
 );
 
 CREATE TABLE ratings (
