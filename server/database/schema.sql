@@ -61,7 +61,7 @@ CREATE TABLE climbers (
   name VARCHAR(50)
 );
 
-CREATE INDEX route_id_index ON routes (route_id);
+CREATE INDEX area_id_index ON climbs (answer_id);
 
 COPY ticks FROM '/Users/aimeekang/HackReactor/MVP/AK-MVP/server/database/data/ticks.csv' WITH (FORMAT CSV, HEADER true);
 COPY routes FROM '/Users/aimeekang/HackReactor/MVP/AK-MVP/server/database/data/routes.csv' WITH (FORMAT CSV, HEADER true);
