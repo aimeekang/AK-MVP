@@ -47,15 +47,6 @@ CREATE TABLE climbs (
   FOREIGN KEY (area_id) REFERENCES areas(id)
 );
 
-CREATE TABLE ratings (
-  id SERIAL PRIMARY KEY NOT NULL,
-  user_id VARCHAR(100),
-  rating INTEGER,
-  route_id INTEGER,
-  name VARCHAR(100),
-  grade VARCHAR(20)
-);
-
 CREATE TABLE climbers (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(50)
@@ -64,8 +55,6 @@ CREATE TABLE climbers (
 CREATE INDEX area_id_index ON climbs (answer_id);
 
 COPY ticks FROM '/Users/aimeekang/HackReactor/MVP/AK-MVP/server/database/data/ticks.csv' WITH (FORMAT CSV, HEADER true);
-COPY routes FROM '/Users/aimeekang/HackReactor/MVP/AK-MVP/server/database/data/routes.csv' WITH (FORMAT CSV, HEADER true);
-COPY ratings FROM '/Users/aimeekang/HackReactor/MVP/AK-MVP/server/database/data/ratings.csv' WITH (FORMAT CSV, HEADER true);
 COPY climbers FROM '/Users/aimeekang/HackReactor/MVP/AK-MVP/server/database/data/climbers.csv' WITH (FORMAT CSV, HEADER true);
 
 -- SELECT setval('ticks_id_seq', (SELECT MAX(id) FROM ticks));
