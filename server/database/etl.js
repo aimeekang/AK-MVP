@@ -32,8 +32,8 @@ jsonFiles.forEach((file) => {
     jsonData.content.description,
     jsonData.totalClimbs,
     jsonData.metadata.lnglat.coordinates,
-    jsonData.aggregate.byGrade,
-    jsonData.aggregate.byDiscipline
+    [jsonData.aggregate.byGrade],
+    JSON.stringify(jsonData.aggregate.byDiscipline)
   ])
     .then((result) => {
       const areaId = result.rows[0].id;
@@ -46,7 +46,7 @@ jsonFiles.forEach((file) => {
           climb.name,
           climb.yds,
           climb.fa,
-          climb.type,
+          JSON.stringify(climb.type),
           climb.safety,
           climb.content.description,
           climb.content.protection,
