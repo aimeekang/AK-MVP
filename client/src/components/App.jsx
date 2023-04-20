@@ -3,12 +3,13 @@ import axios from 'axios';
 import Dashboard from './Dashboard/Dashboard.jsx';
 import Ticks from './Ticks/Ticks.jsx';
 import Trends from './Trends/Trends.jsx';
+import Search from './Search/Search.jsx';
 import {
   Header,
   TextContainer,
   MainContainer,
   ContentContainer,
-  TContainer
+  TContainer,
 } from './styles/styles.js';
 
 const App = function App() {
@@ -40,6 +41,7 @@ const App = function App() {
         <TextContainer>
           dynolabs
         </TextContainer>
+        <Search />
       </Header>
       <ContentContainer>
         <Dashboard ticks={ticks} />

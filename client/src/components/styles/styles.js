@@ -13,9 +13,12 @@ export const MainContainer = styled.div`
 `;
 
 export const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: #FFFFFF;
   position: fixed;
-  font-family: 'Shrikhand', cursive;
+  /* font-family: 'Shrikhand', cursive; */
   width: 100%;
   height: 70px;
   top: 0;
