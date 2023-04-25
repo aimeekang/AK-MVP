@@ -18,7 +18,6 @@ export const Header = styled.div`
   justify-content: space-between;
   background-color: #FFFFFF;
   position: fixed;
-  /* font-family: 'Shrikhand', cursive; */
   width: 100%;
   height: 70px;
   top: 0;
