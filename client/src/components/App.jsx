@@ -41,6 +41,7 @@ const App = function App() {
       .then((results) => {
         setClimbs(results.data);
         setInput('');
+        setPage('Search');
       })
       .catch((err) => console.error(err));
   };
@@ -58,6 +59,7 @@ const App = function App() {
           handleSearch={handleSearch}
         />
       </Header>
+      {page === 'Profile' && (
       <ContentContainer>
         <Dashboard ticks={ticks} />
         <TContainer>
@@ -65,6 +67,10 @@ const App = function App() {
           <Trends ticks={ticks} />
         </TContainer>
       </ContentContainer>
+      )}
+      {page === 'Search' && (
+        <h2>hello from search page!</h2>
+      )}
     </MainContainer>
   );
 };
