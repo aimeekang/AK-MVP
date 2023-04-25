@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Search = function Search({ term, handleChange, handleSearch }) {
+const Search = function Search({ input, handleChange, handleSearch }) {
   return (
     <form onSubmit={handleSearch}>
       <input
         type="text"
-        value={term}
+        value={input}
         placeholder="Find routes and areas"
         onChange={handleChange}
       />

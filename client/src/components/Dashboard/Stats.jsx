@@ -31,14 +31,14 @@ const Stats = function Stats({ ticks }) {
   };
 
   const routeStats = helpers.routeGradeStats(ticks);
-  stats['gradeType']['Sport'] = routeStats.Sport;
-  stats['gradeType']['Trad'] = routeStats.Trad;
+  stats.gradeType.Sport = routeStats.Sport;
+  stats.gradeType.Trad = routeStats.Trad;
 
   const volumeByType = helpers.calcVolumeStats(ticks);
-  stats['volumeType']['Sport'] = volumeByType.Sport;
-  stats['volumeType']['Trad'] = volumeByType.Trad;
-  stats['volumeType']['Boulder'] = volumeByType.Boulder;
-  console.log('stats', stats);
+  stats.volumeType.Sport = volumeByType.Sport;
+  stats.volumeType.Trad = volumeByType.Trad;
+  stats.volumeType.Boulder = volumeByType.Boulder;
+  // console.log('stats', stats);
 
   return (
     <StatsContainer>

@@ -15,7 +15,8 @@ import {
 const App = function App() {
   const [page, setPage] = useState('Profile');
   const [ticks, setTicks] = useState([]);
-  const [term, setTerm] = useState('');
+  const [input, setInput] = useState('');
+  const [climbs, setClimbs] = useState('');
 
   const updateList = () => {
     axios
@@ -29,12 +30,19 @@ const App = function App() {
   }, []);
 
   const handleChange = (event) => {
-    setTerm(event.target.value);
+    setInput(event.target.value);
   };
 
   const handleSearch = (event) => {
     event.preventDefault();
-    console.log('i am being searched');
+    const term = input.toLowerCase();
+    axios
+      .get('/rr/climbs', { params: { term } })
+      .then((results) => {
+        setClimbs(results.data);
+        setInput('');
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -44,8 +52,8 @@ const App = function App() {
           dynolabs
         </TextContainer>
         <Search
-          term={term}
-          setTerm={setTerm}
+          input={input}
+          setInput={setInput}
           handleChange={handleChange}
           handleSearch={handleSearch}
         />
