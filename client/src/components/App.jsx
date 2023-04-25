@@ -9,11 +9,13 @@ import {
   TextContainer,
   MainContainer,
   ContentContainer,
-  TContainer,
+  TContainer
 } from './styles/styles.js';
 
 const App = function App() {
+  const [page, setPage] = useState('Profile');
   const [ticks, setTicks] = useState([]);
+  const [term, setTerm] = useState('');
 
   const updateList = () => {
     axios
@@ -22,15 +24,18 @@ const App = function App() {
       .catch((err) => console.error(err));
   };
 
-  // const updateUser = () => {
-  //   axios
-  //     .get('/rr/climbers')
-  //     .then((results) => )
-  // };
-
   useEffect(() => {
     updateList();
   }, []);
+
+  const handleChange = (event) => {
+    setTerm(event.target.value);
+  };
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    console.log('i am being searched');
+  };
 
   return (
     <MainContainer>
@@ -38,7 +43,12 @@ const App = function App() {
         <TextContainer>
           dynolabs
         </TextContainer>
-        <Search />
+        <Search
+          term={term}
+          setTerm={setTerm}
+          handleChange={handleChange}
+          handleSearch={handleSearch}
+        />
       </Header>
       <ContentContainer>
         <Dashboard ticks={ticks} />
