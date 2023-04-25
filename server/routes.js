@@ -10,6 +10,6 @@ router.put('/rr/ticks/:tick_id/flag', controllers.ticks.flagTick);
 // TODOS ROUTES
 
 // CLIMBS ROUTES
-router.get('/rr/ticks', controllers.climbs.getClimbs);
+router.get('/rr/climbs', controllers.climbs.getClimbs);
 
 module.exports = router;
