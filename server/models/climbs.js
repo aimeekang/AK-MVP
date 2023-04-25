@@ -29,9 +29,11 @@ const getClimbs = (req) => {
           'name', c.name,
           'yds', c.yds,
           'fa', c.fa,
-          'type', c.type
+          'type', c.type,
+          'path_tokens', b.path_tokens
         ))
         FROM c
+        LEFT JOIN areas b on c.area_id = b.id
       )
     )
   `;
