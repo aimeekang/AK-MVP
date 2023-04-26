@@ -1,7 +1,8 @@
 const db = require('../database/db.js');
 
 const getClimbs = (req) => {
-  const searchTerm = req.term;
+  console.log('request', req);
+  const searchTerm = req.query.term;
   const query = `
     WITH a AS (
       SELECT *

@@ -12,8 +12,8 @@ const Search = function Search({ climbs, input }) {
       <button onClick={() => setArea(false)}>Routes</button>
       <button onClick={() => setArea(true)}>Area</button>
       {area
-        ? <RouteList />
-        : <AreaList />}
+        ? <AreaList climbs={climbs} />
+        : <RouteList climbs={climbs} />}
     </div>
   );
 };
