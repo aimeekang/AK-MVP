@@ -3,6 +3,7 @@ import axios from 'axios';
 import Dashboard from './Dashboard/Dashboard.jsx';
 import Ticks from './Ticks/Ticks.jsx';
 import Trends from './Trends/Trends.jsx';
+import SearchBar from './SearchBar/SearchBar.jsx';
 import Search from './Search/Search.jsx';
 import {
   Header,
@@ -40,7 +41,7 @@ const App = function App() {
       .get('/rr/climbs', { params: { term } })
       .then((results) => {
         setClimbs(results.data);
-        setInput('');
+        // setInput('');
         setPage('Search');
       })
       .catch((err) => console.error(err));
@@ -52,7 +53,7 @@ const App = function App() {
         <TextContainer>
           dynolabs
         </TextContainer>
-        <Search
+        <SearchBar
           input={input}
           setInput={setInput}
           handleChange={handleChange}
@@ -69,7 +70,10 @@ const App = function App() {
       </ContentContainer>
       )}
       {page === 'Search' && (
-        <h2>hello from search page!</h2>
+        <Search
+          input={input}
+          climbs={climbs}
+        />
       )}
     </MainContainer>
   );
