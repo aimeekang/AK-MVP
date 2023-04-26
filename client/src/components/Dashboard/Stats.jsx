@@ -38,7 +38,6 @@ const Stats = function Stats({ ticks }) {
   stats.volumeType.Sport = volumeByType.Sport;
   stats.volumeType.Trad = volumeByType.Trad;
   stats.volumeType.Boulder = volumeByType.Boulder;
-  // console.log('stats', stats);
 
   return (
     <StatsContainer>

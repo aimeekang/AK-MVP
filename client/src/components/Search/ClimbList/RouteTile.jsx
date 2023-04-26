@@ -2,7 +2,11 @@ import React from 'react';
 
 const RouteTile = function RouteTile({ route }) {
   return (
-    <div>I am a route tile</div>
+    <div className="route-tile">
+      <div>{route.name}</div>
+      <div>{route.yds}</div>
+      <div>{route.fa}</div>
+    </div>
   );
 };
 
