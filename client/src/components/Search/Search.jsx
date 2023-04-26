@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import RouteList from './RouteList.jsx';
-import AreaList from './AreaList.jsx';
+import RouteList from './ClimbList/RouteList.jsx';
+import AreaList from './ClimbList/AreaList.jsx';
 
 const Search = function Search({ climbs, input }) {
   const [area, setArea] = useState(false);
