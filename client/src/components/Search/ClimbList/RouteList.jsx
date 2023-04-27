@@ -10,12 +10,16 @@ const RouteList = function RouteList({ climbs }) {
 
   return (
     <div>
-      {routes.map((route) => (
-        <RouteTile
-          key={route.id}
-          route={route}
-        />
-      ))}
+      {routes.length > 0 ? (
+        routes.map((route) => (
+          <RouteTile
+            key={route.id}
+            route={route}
+          />
+        ))
+      ) : (
+        <div>No results found.</div>
+      )}
     </div>
   );
 };
