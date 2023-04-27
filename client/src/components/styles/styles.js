@@ -29,7 +29,12 @@ export const Header = styled.div`
 
 export const SearchIcon = styled(BsSearch)`
   font-size: 20px;
-  padding: 0.15em;
+  color: #fb4e05;
+  /* padding: 5px; */
+`;
+
+export const SearchInput = styled.input`
+  padding: 5px;
 `;
 
 export const TextContainer = styled.div`

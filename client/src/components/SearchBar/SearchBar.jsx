@@ -1,16 +1,16 @@
 import React from 'react';
-import { SearchIcon } from '../styles/styles.js';
+import { SearchIcon, SearchInput } from '../styles/styles.js';
 
 const SearchBar = function SearchBar({ input, handleChange, handleSearch }) {
   return (
     <form onSubmit={handleSearch}>
-      <input
+      <SearchInput
         type="text"
         value={input}
         placeholder="Find routes and areas"
         onChange={handleChange}
       />
-      <SearchIcon onClick={handleSearch} />
+      <SearchIcon />
     </form>
   );
 };
