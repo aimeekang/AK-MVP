@@ -1,4 +1,5 @@
 import React from 'react';
+import { SearchIcon } from '../styles/styles.js';
 
 const SearchBar = function SearchBar({ input, handleChange, handleSearch }) {
   return (
@@ -9,7 +10,7 @@ const SearchBar = function SearchBar({ input, handleChange, handleSearch }) {
         placeholder="Find routes and areas"
         onChange={handleChange}
       />
-      <button>Search</button>
+      <SearchIcon onClick={handleSearch} />
     </form>
   );
 };

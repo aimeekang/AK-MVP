@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FaRegEdit, FaEdit } from 'react-icons/fa';
-import { BsTrash, BsTrashFill } from 'react-icons/bs';
+import { BsTrash, BsTrashFill, BsSearch } from 'react-icons/bs';
 
 // OVERALL APP
 export const MainContainer = styled.div`
@@ -25,6 +25,11 @@ export const Header = styled.div`
   right: 0;
   font-size: 250%;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+`;
+
+export const SearchIcon = styled(BsSearch)`
+  font-size: 20px;
+  padding: 0.15em;
 `;
 
 export const TextContainer = styled.div`
