@@ -1,7 +1,7 @@
 const db = require('../database/db.js');
 
 const getClimbs = (req) => {
-  console.log('request', req);
+  console.log('request: ', req);
   const searchTerm = req.query.term;
   const query = `
     WITH a AS (
@@ -16,23 +16,23 @@ const getClimbs = (req) => {
     )
     SELECT json_build_object(
       'areas', (
-        SELECT json_agg(json_build_object(
+        SELECT COALESCE(json_agg(json_build_object(
           'id', a.id,
           'name', a.name,
           'path_tokens', a.path_tokens,
           'total_climbs', a.total_climbs
-        ))
+        )),'[]')
         FROM a
       ),
       'routes', (
-        SELECT json_agg(json_build_object(
+        SELECT COALESCE(json_agg(json_build_object(
           'id', c.id,
           'name', c.name,
           'yds', c.yds,
           'fa', c.fa,
           'type', c.type,
           'path_tokens', b.path_tokens
-        ))
+        )), '[]')
         FROM c
         LEFT JOIN areas b on c.area_id = b.id
       )

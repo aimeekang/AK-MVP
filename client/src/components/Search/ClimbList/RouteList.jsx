@@ -6,7 +6,7 @@ const RouteList = function RouteList({ climbs }) {
 
   useEffect(() => {
     setRoutes(climbs.routes);
-  }, []);
+  }, [climbs]);
 
   return (
     <div>
