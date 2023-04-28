@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Profile from './Profile.jsx';
 import Friends from './Friends.jsx';
 import Stats from './Stats.jsx';

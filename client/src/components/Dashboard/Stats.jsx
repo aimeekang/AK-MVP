@@ -5,16 +5,16 @@ import * as helpers from '../../utilities/helpers.js';
 
 const Stats = function Stats({ ticks }) {
   const today = new Date(); // Thu Mar 02 2023 10:01:15 GMT-0800 (Pacific Standard Time)
-  const [stats, setStats] = useState({
+  const initial = {
     routes: {
-      month: 8,
-      year: 34,
-      all_time: ticks.length
+      month: null,
+      year: null,
+      all_time: null
     },
     days: {
-      month: 2,
-      year: 10,
-      all_time: 256
+      month: null,
+      year: null,
+      all_time: null
     },
     gradeType: {
       Sport: '',
@@ -26,11 +26,13 @@ const Stats = function Stats({ ticks }) {
       Trad: null,
       Boulder: null
     }
-  });
+  };
+
+  const [stats, setStats] = useState(initial);
 
   useEffect(() => {
-    let routeStats = helpers.routeGradeStats(ticks);
-    let volumeByType = helpers.calcVolumeStats(ticks);
+    const routeStats = helpers.routeGradeStats(ticks);
+    const volumeByType = helpers.calcVolumeStats(ticks);
 
     setStats({
       routes: {
@@ -55,17 +57,8 @@ const Stats = function Stats({ ticks }) {
       }
     });
 
-    console.log('volume type: ', stats.volumeType.Sport);
+    console.log('volume type: ', stats.volumeType.Sport); // 605;
   }, [ticks]);
-
-  // const routeStats = helpers.routeGradeStats(ticks);
-  // stats.gradeType.Sport = routeStats.Sport;
-  // stats.gradeType.Trad = routeStats.Trad;
-
-  // const volumeByType = helpers.calcVolumeStats(ticks);
-  // stats.volumeType.Sport = volumeByType.Sport;
-  // stats.volumeType.Trad = volumeByType.Trad;
-  // stats.volumeType.Boulder = volumeByType.Boulder;
 
   return (
     <StatsContainer>
