@@ -16,7 +16,7 @@ const getTicks = (req) => {
           'tick_date', to_timestamp(t.date),
           'tick_route', t.route,
           'tick_grade', t.grade,
-          'tick_notes', t.notes,
+          'tick_notes', COALESCE(t.notes, ''),
           'average_rating', t.average_rating,
           'style', t.style,
           'lead_style', t.lead_style,
