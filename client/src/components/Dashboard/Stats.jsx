@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { StatsContainer } from '../styles/styles.js';
 import * as helpers from '../../utilities/helpers.js';
 
 const Stats = function Stats({ ticks }) {
   const today = new Date(); // Thu Mar 02 2023 10:01:15 GMT-0800 (Pacific Standard Time)
-  // console.log('year', format(new Date(), 'yyyy'));
-
-  const stats = {
+  const [stats, setStats] = useState({
     routes: {
       month: 8,
       year: 34,
@@ -28,16 +26,46 @@ const Stats = function Stats({ ticks }) {
       Trad: null,
       Boulder: null
     }
-  };
+  });
 
-  const routeStats = helpers.routeGradeStats(ticks);
-  stats.gradeType.Sport = routeStats.Sport;
-  stats.gradeType.Trad = routeStats.Trad;
+  useEffect(() => {
+    let routeStats = helpers.routeGradeStats(ticks);
+    let volumeByType = helpers.calcVolumeStats(ticks);
 
-  const volumeByType = helpers.calcVolumeStats(ticks);
-  stats.volumeType.Sport = volumeByType.Sport;
-  stats.volumeType.Trad = volumeByType.Trad;
-  stats.volumeType.Boulder = volumeByType.Boulder;
+    setStats({
+      routes: {
+        month: 8,
+        year: 34,
+        all_time: ticks.length
+      },
+      days: {
+        month: 2,
+        year: 10,
+        all_time: 256
+      },
+      gradeType: {
+        Sport: routeStats.Sport,
+        Trad: routeStats.Trad,
+        Boulder: 'V4'
+      },
+      volumeType: {
+        Sport: volumeByType.Sport,
+        Trad: volumeByType.Trad,
+        Boulder: volumeByType.Boulder
+      }
+    });
+
+    console.log('volume type: ', stats.volumeType.Sport);
+  }, [ticks]);
+
+  // const routeStats = helpers.routeGradeStats(ticks);
+  // stats.gradeType.Sport = routeStats.Sport;
+  // stats.gradeType.Trad = routeStats.Trad;
+
+  // const volumeByType = helpers.calcVolumeStats(ticks);
+  // stats.volumeType.Sport = volumeByType.Sport;
+  // stats.volumeType.Trad = volumeByType.Trad;
+  // stats.volumeType.Boulder = volumeByType.Boulder;
 
   return (
     <StatsContainer>
