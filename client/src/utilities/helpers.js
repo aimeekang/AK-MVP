@@ -34,6 +34,8 @@ const calcVolumeStats = (ticks) => {
   let routes = entries[0][1];
   let boulder = entries[1][1];
 
+  console.log(routeVolume);
+
   let volumeStats = {
     Sport: null,
     Trad: null,
@@ -120,23 +122,49 @@ const mapDetailGrade = (tickGrade) => {
   return mappedGrade
 };
 
+const makeRouteTemplate = () => ({
+  '5.6': { Sport: 0, Trad: 0 },
+  '5.7': { Sport: 0, Trad: 0 },
+  '5.8': { Sport: 0, Trad: 0 },
+  '5.9': { Sport: 0, Trad: 0 },
+  '5.10a': { Sport: 0, Trad: 0 },
+  '5.10a/b': { Sport: 0, Trad: 0 },
+  '5.10b': { Sport: 0, Trad: 0 },
+  '5.10b/c': { Sport: 0, Trad: 0 },
+  '5.10c': { Sport: 0, Trad: 0 },
+  '5.10c/d': { Sport: 0, Trad: 0 },
+  '5.10d': { Sport: 0, Trad: 0 },
+  '5.11a': { Sport: 0, Trad: 0 },
+  '5.11a/b': { Sport: 0, Trad: 0 },
+  '5.11b': { Sport: 0, Trad: 0 },
+  '5.11b/c': { Sport: 0, Trad: 0 },
+  '5.11c': { Sport: 0, Trad: 0 },
+  '5.11c/d': { Sport: 0, Trad: 0 },
+  '5.11d': { Sport: 0, Trad: 0 },
+  '5.12a': { Sport: 0, Trad: 0 },
+  '5.12a/b': { Sport: 0, Trad: 0 },
+  '5.12b': { Sport: 0, Trad: 0 },
+  '5.12b/c': { Sport: 0, Trad: 0 },
+  '5.12c': { Sport: 0, Trad: 0 },
+  '5.12c/d': { Sport: 0, Trad: 0 },
+  '5.12d': { Sport: 0, Trad: 0 },
+});
 
 // TRENDS >> CHARTS >> ROUTES GRADE
 const gradeData = (ticks) => {
-  let routeTemp = routeGradeTemplate;
-  let boulderTemp = boulderGradeTemplate;
+  let routeTemp = JSON.parse(JSON.stringify(routeGradeTemplate));
+  let boulderTemp = { ...boulderGradeTemplate };
 
   ticks.forEach((tick) => {
     let tickGrade = mapGrade(tick.tick_grade) || tick.tick_grade;
     let type = tick.route_type;
+    let types = routeTemp[tickGrade];
 
     if (type === 'Sport') {
-      let types = routeTemp[tickGrade];
       types.Sport++;
     } else if (type === 'Boulder') {
       boulderTemp[tickGrade]++;
     } else {
-      let types = routeTemp[tickGrade];
       types.Trad++;
     }
   });

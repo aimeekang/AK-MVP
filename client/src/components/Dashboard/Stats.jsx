@@ -19,7 +19,7 @@ const Stats = function Stats({ ticks }) {
     gradeType: {
       Sport: '',
       Trad: '',
-      Boulder: 'V4'
+      Boulder: ''
     },
     volumeType: {
       Sport: null,
@@ -57,7 +57,7 @@ const Stats = function Stats({ ticks }) {
       }
     });
 
-    console.log('volume type: ', stats.volumeType.Sport); // 605;
+    console.log('volume type: ', volumeByType.Sport); // 605;
   }, [ticks]);
 
   return (
