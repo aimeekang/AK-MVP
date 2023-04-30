@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import Dashboard from './Dashboard/Dashboard.jsx';
 import Ticks from './Ticks/Ticks.jsx';

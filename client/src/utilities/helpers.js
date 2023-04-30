@@ -7,25 +7,6 @@ const {
   routeGradeDetailTemplate,
 } = require('./mappings.js');
 
-// DASHBOARD
-const stats = {
-  today: format(new Date(),'yyyy MM'), // 'February 28, 2023'
-  current_year: format(new Date(), 'yyyy'),
-  daysOut_year: null,
-  daysOut_month: null,
-  lastDayOut: null,
-  routesClimbed_year: null,
-  gradeType: {
-    Sport: '',
-    Trad: '',
-    Boulder: '',
-  },
-  volumeType: {
-    Sport: '',
-    Trad: '',
-    Boulder: '',
-  }
-};
 
 // STATS
 const calcVolumeStats = (ticks) => {
@@ -122,33 +103,37 @@ const mapDetailGrade = (tickGrade) => {
   return mappedGrade
 };
 
-const makeRouteTemplate = () => ({
-  '5.6': { Sport: 0, Trad: 0 },
-  '5.7': { Sport: 0, Trad: 0 },
-  '5.8': { Sport: 0, Trad: 0 },
-  '5.9': { Sport: 0, Trad: 0 },
-  '5.10a': { Sport: 0, Trad: 0 },
-  '5.10a/b': { Sport: 0, Trad: 0 },
-  '5.10b': { Sport: 0, Trad: 0 },
-  '5.10b/c': { Sport: 0, Trad: 0 },
-  '5.10c': { Sport: 0, Trad: 0 },
-  '5.10c/d': { Sport: 0, Trad: 0 },
-  '5.10d': { Sport: 0, Trad: 0 },
-  '5.11a': { Sport: 0, Trad: 0 },
-  '5.11a/b': { Sport: 0, Trad: 0 },
-  '5.11b': { Sport: 0, Trad: 0 },
-  '5.11b/c': { Sport: 0, Trad: 0 },
-  '5.11c': { Sport: 0, Trad: 0 },
-  '5.11c/d': { Sport: 0, Trad: 0 },
-  '5.11d': { Sport: 0, Trad: 0 },
-  '5.12a': { Sport: 0, Trad: 0 },
-  '5.12a/b': { Sport: 0, Trad: 0 },
-  '5.12b': { Sport: 0, Trad: 0 },
-  '5.12b/c': { Sport: 0, Trad: 0 },
-  '5.12c': { Sport: 0, Trad: 0 },
-  '5.12c/d': { Sport: 0, Trad: 0 },
-  '5.12d': { Sport: 0, Trad: 0 },
-});
+const makeRouteTemplate = () => {
+  let template = {
+    '5.6': { Sport: 0, Trad: 0 },
+    '5.7': { Sport: 0, Trad: 0 },
+    '5.8': { Sport: 0, Trad: 0 },
+    '5.9': { Sport: 0, Trad: 0 },
+    '5.10a': { Sport: 0, Trad: 0 },
+    '5.10a/b': { Sport: 0, Trad: 0 },
+    '5.10b': { Sport: 0, Trad: 0 },
+    '5.10b/c': { Sport: 0, Trad: 0 },
+    '5.10c': { Sport: 0, Trad: 0 },
+    '5.10c/d': { Sport: 0, Trad: 0 },
+    '5.10d': { Sport: 0, Trad: 0 },
+    '5.11a': { Sport: 0, Trad: 0 },
+    '5.11a/b': { Sport: 0, Trad: 0 },
+    '5.11b': { Sport: 0, Trad: 0 },
+    '5.11b/c': { Sport: 0, Trad: 0 },
+    '5.11c': { Sport: 0, Trad: 0 },
+    '5.11c/d': { Sport: 0, Trad: 0 },
+    '5.11d': { Sport: 0, Trad: 0 },
+    '5.12a': { Sport: 0, Trad: 0 },
+    '5.12a/b': { Sport: 0, Trad: 0 },
+    '5.12b': { Sport: 0, Trad: 0 },
+    '5.12b/c': { Sport: 0, Trad: 0 },
+    '5.12c': { Sport: 0, Trad: 0 },
+    '5.12c/d': { Sport: 0, Trad: 0 },
+    '5.12d': { Sport: 0, Trad: 0 }
+  };
+
+  return template;
+};
 
 // TRENDS >> CHARTS >> ROUTES GRADE
 const gradeData = (ticks) => {
