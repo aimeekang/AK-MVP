@@ -7,6 +7,7 @@ import SearchBar from './SearchBar/SearchBar.jsx';
 import Search from './Search/Search.jsx';
 import {
   Header,
+  HeaderContent,
   TextContainer,
   MainContainer,
   ContentContainer,
@@ -50,15 +51,17 @@ const App = function App() {
   return (
     <MainContainer>
       <Header>
-        <TextContainer>
-          dynolabs
-        </TextContainer>
-        <SearchBar
-          input={input}
-          setInput={setInput}
-          handleChange={handleChange}
-          handleSearch={handleSearch}
-        />
+        <HeaderContent>
+          <TextContainer>
+            dynolabs
+          </TextContainer>
+          <SearchBar
+            input={input}
+            setInput={setInput}
+            handleChange={handleChange}
+            handleSearch={handleSearch}
+          />
+        </HeaderContent>
       </Header>
       {page === 'Profile' && (
       <ContentContainer>

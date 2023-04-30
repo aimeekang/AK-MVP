@@ -272,22 +272,6 @@ const daysData = (ticks) => {
   return dayCount;
 };
 
-// const formatDaysData = (daysData) => {
-//   let months = Object.entries(daysData).reverse();
-//   const data = [];
-
-//   months.forEach((month) => {
-//     let monthObj = {
-//       name: format(new Date(month[0]), 'MMM yyyy'),
-//       count: month[1]
-//     };
-//     data.push(monthObj);
-//   })
-
-//   return data;
-// };
-
-
 export {
   gradeData,
   volumeData,

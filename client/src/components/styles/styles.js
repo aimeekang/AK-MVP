@@ -13,9 +13,6 @@ export const MainContainer = styled.div`
 `;
 
 export const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   background-color: #FFFFFF;
   position: fixed;
   width: 100%;
@@ -27,10 +24,17 @@ export const Header = styled.div`
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 `;
 
+export const HeaderContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 18rem;
+  margin-right: 14rem;
+`;
+
 export const SearchIcon = styled(BsSearch)`
   font-size: 20px;
   color: #fb4e05;
-  /* padding: 5px; */
 `;
 
 export const SearchInput = styled.input`
@@ -38,7 +42,6 @@ export const SearchInput = styled.input`
 `;
 
 export const TextContainer = styled.div`
-  margin-left: 275px;
   margin-top: 0.5rem;
   color: #fb4e05;
   font-family: 'Shrikhand', cursive;

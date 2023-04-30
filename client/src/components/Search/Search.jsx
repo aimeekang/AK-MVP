@@ -9,8 +9,18 @@ const Search = function Search({ climbs, input }) {
     <div>
       <h2>Showing results for </h2>
       <h2>{input}</h2>
-      <button onClick={() => setArea(false)}>Routes</button>
-      <button onClick={() => setArea(true)}>Area</button>
+      <button
+        type="button"
+        onClick={() => setArea(false)}
+      >
+        Routes
+      </button>
+      <button
+        type="button"
+        onClick={() => setArea(true)}
+      >
+        Area
+      </button>
       {area
         ? <AreaList climbs={climbs} />
         : <RouteList climbs={climbs} />}
