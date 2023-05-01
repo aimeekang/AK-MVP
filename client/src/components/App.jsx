@@ -1,36 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  Route, Routes, useNavigate
+} from 'react-router-dom';
 import axios from 'axios';
-import Dashboard from './Dashboard/Dashboard.jsx';
-import Ticks from './Ticks/Ticks.jsx';
-import Trends from './Trends/Trends.jsx';
+import Home from './Home/Home.jsx';
 import SearchBar from './SearchBar/SearchBar.jsx';
 import Search from './Search/Search.jsx';
 import {
   Header,
   HeaderContent,
   TextContainer,
-  MainContainer,
-  ContentContainer,
-  TContainer
+  MainContainer
 } from './styles/styles.js';
 
 const App = function App() {
-  const [page, setPage] = useState('Profile');
-  const [ticks, setTicks] = useState([]);
   const [input, setInput] = useState('');
   const [climbs, setClimbs] = useState('');
-
-  const updateList = () => {
-    axios
-      .get('/rr/ticks')
-      .then((results) => setTicks(results.data.results))
-      .catch((err) => console.error(err));
-  };
-
-  useEffect(() => {
-    updateList();
-  }, []);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -43,8 +29,7 @@ const App = function App() {
       .get('/rr/climbs', { params: { term } })
       .then((results) => {
         setClimbs(results.data);
-        // setInput('');
-        setPage('Search');
+        navigate('/search');
       })
       .catch((err) => console.error(err));
   };
@@ -64,21 +49,10 @@ const App = function App() {
           />
         </HeaderContent>
       </Header>
-      {page === 'Profile' && (
-      <ContentContainer>
-        <Dashboard ticks={ticks} />
-        <TContainer>
-          <Ticks ticks={ticks} updateList={updateList} />
-          <Trends ticks={ticks} />
-        </TContainer>
-      </ContentContainer>
-      )}
-      {page === 'Search' && (
-        <Search
-          input={input}
-          climbs={climbs}
-        />
-      )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Search input={input} climbs={climbs} />} />
+      </Routes>
     </MainContainer>
   );
 };
