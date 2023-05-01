@@ -29,7 +29,7 @@ const App = function App() {
       .get('/rr/climbs', { params: { term } })
       .then((results) => {
         setClimbs(results.data);
-        navigate('/search');
+        navigate(`/search?term=${term}`);
       })
       .catch((err) => console.error(err));
   };
