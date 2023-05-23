@@ -10,6 +10,8 @@ const RouteTile = function RouteTile({ route }) {
       {route.fa.toLowerCase() !== 'unknown' && (
         <div>FA: {route.fa}</div>
       )}
+      <div>{types.join(',')}</div>
+      <div>{route.path_tokens.join(' > ')}</div>
     </div>
   );
 };

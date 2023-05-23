@@ -10,8 +10,10 @@ const Search = function Search({ climbs }) {
 
   return (
     <div>
-      <h2>Showing results for </h2>
-      <h2>{term}</h2>
+      <span>
+        <h2>Showing results for </h2>
+        <h2>{term}</h2>
+      </span>
       <button
         type="button"
         onClick={() => setArea(false)}
